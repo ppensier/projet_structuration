@@ -36,6 +36,7 @@ QSize GLWidget::sizeHint() const
    //     updateGL();
    // }
 }*/
+//cocuocuocuocuocu
 void GLWidget::initializeGL()
 {
     qglClearColor(qtPurple.dark());
