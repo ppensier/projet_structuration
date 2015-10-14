@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QCheckBox>
 #include <glwidget.h>
+#include <mnt.h>
 namespace Ui {
 class MainWindow;
 }
@@ -14,10 +15,14 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
-    void ouvrir();
+
     ~MainWindow();
     QCheckBox *cbMNT ;
     GLWidget *glWZone3D;
+    Mnt *leMnt;
+    /*****Les méthodes******/
+    void loadMnt(std::string fileName);
+
 
 
 signals:

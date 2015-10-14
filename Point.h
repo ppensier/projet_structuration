@@ -19,6 +19,7 @@ public:
     void setY(float);
     void setZ(float);
 private:
+
     float x;
     float y;
     float z;
