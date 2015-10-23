@@ -1,0 +1,21 @@
+Ajout au début :
+git remote add origin git@github.com:.....
+
+A chaque commit :
+git add *
+git commit -m "Message"
+git push -u origin master
+ /******************/
+create new ripesotory 
+echo "# DDDgpx" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:DDDgpx/DDDgpx.git
+git push -u origin master
+
+
+/***push an existing repository from the command line**/
+git remote add origin git@github.com:DDDgpx/DDDgpx.git
+git push -u origin master
+

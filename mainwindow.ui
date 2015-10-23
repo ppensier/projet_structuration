@@ -27,7 +27,7 @@
      <string>Liste des fichiers chargés</string>
     </property>
    </widget>
-   <widget class="QWidget" name="widgetZoneVisu" native="true">
+   <widget class="SimpleViewer" name="widgetZoneVisu" native="true">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -71,6 +71,14 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>SimpleViewer</class>
+   <extends>QWidget</extends>
+   <header location="global">simpleviewer.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

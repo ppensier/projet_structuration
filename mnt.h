@@ -9,7 +9,7 @@ class Mnt
 {
 public:
     Mnt();
-    Mnt(std::string fileName);
+    void loadMnt(std::string fileName);
     std::vector<Point> lesPoints ;
 };
 

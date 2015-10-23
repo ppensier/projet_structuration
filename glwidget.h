@@ -43,5 +43,7 @@ private:
     QPoint lastPos;
     QColor qtGreen;
     QColor qtPurple;
+
+    void draw();
 };
 #endif // GLWIDGET_H

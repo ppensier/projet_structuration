@@ -4,9 +4,11 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
-QT +=opengl
-QT += core gui opengl
+
+
+QT       += core gui opengl xml
+
+LIBS += -lQGLViewer
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -18,11 +20,13 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     glwidget.cpp \
     Point.cpp \
-    mnt.cpp
+    mnt.cpp \
+    simpleviewer.cpp
 
 HEADERS  += mainwindow.h \
     glwidget.h \
     Point.h \
-    mnt.h
+    mnt.h \
+    simpleviewer.h
 
 FORMS    += mainwindow.ui

@@ -18,8 +18,8 @@ public:
 
     ~MainWindow();
     QCheckBox *cbMNT ;
-    GLWidget *glWZone3D;
-    Mnt *leMnt;
+   // GLWidget *glWZone3D;
+
     /*****Les méthodes******/
     void loadMnt(std::string fileName);
 

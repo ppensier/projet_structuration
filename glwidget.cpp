@@ -36,7 +36,7 @@ QSize GLWidget::sizeHint() const
    //     updateGL();
    // }
 }*/
-//cocuocuocuocuocu
+//
 void GLWidget::initializeGL()
 {
     qglClearColor(qtPurple.dark());
@@ -52,6 +52,8 @@ void GLWidget::initializeGL()
     glEnable(GL_MULTISAMPLE);
     static GLfloat lightPosition[4] = { 0.5, 5.0, 7.0, 1.0 };
     glLightfv(GL_LIGHT0, GL_POSITION, lightPosition);
+    /*******/
+
 }
 
 void GLWidget::resizeGL(int width, int height)
@@ -70,11 +72,63 @@ void GLWidget::resizeGL(int width, int height)
 }
 void GLWidget::paintGL()
 {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    /*glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
     glTranslatef(0.0, 0.0, -10.0);
     glRotatef(xRot / 16.0, 1.0, 0.0, 0.0);
     glRotatef(yRot / 16.0, 0.0, 1.0, 0.0);
     glRotatef(zRot / 16.0, 0.0, 0.0, 1.0);
     //logo->draw();
+    draw();*/
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glLoadIdentity();
+
+
+    //glColor3f
+    glColor3f(1,1,1);
+    glTranslatef(0.0, 0.0, -5.0);
+    glBegin(GL_POINTS);
+        glVertex3f(-0.5,-0.5,0.5);
+        glVertex3f(-0.5,+0.5,0.5);
+        glVertex3f(+0.5,+0.5,0.5);
+        glVertex3f(+0.5,-0.5,0.5);
+    glEnd();
+
+}
+void GLWidget::draw()
+{
+
+    qglColor(Qt::red);
+    /*glBegin(GL_QUADS);
+        glNormal3f(0,0,-1);
+        glVertex3f(-1,-1,0);
+        glVertex3f(-1,1,0);
+        glVertex3f(1,1,0);
+        glVertex3f(1,-1,0);
+
+    glEnd();*/
+    glBegin(GL_TRIANGLES);
+        glNormal3f(0,-1,0.707);
+        glVertex3f(-1,-1,0);
+        glVertex3f(1,-1,0);
+        glVertex3f(0,0,1.2);
+    glEnd();
+   /* glBegin(GL_TRIANGLES);
+        glNormal3f(1,0, 0.707);
+        glVertex3f(1,-1,0);
+        glVertex3f(1,1,0);
+        glVertex3f(0,0,1.2);
+    glEnd();
+    glBegin(GL_TRIANGLES);
+        glNormal3f(0,1,0.707);
+        glVertex3f(1,1,0);
+        glVertex3f(-1,1,0);
+        glVertex3f(0,0,1.2);
+    glEnd();
+    glBegin(GL_TRIANGLES);
+        glNormal3f(-1,0,0.707);
+        glVertex3f(-1,1,0);
+        glVertex3f(-1,-1,0);
+        glVertex3f(0,0,1.2);
+    glEnd();*/
 }
