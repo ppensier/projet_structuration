@@ -7,14 +7,16 @@
  *-------------------------------------------------------------------------------------------------
 */
 Point::Point()
-{
+{x=-1;
+    y=0.0;
+    z=0.0;
 }
 Point::Point(const Point &pt){
     x = pt.getX();
     y = pt.getY();
     z = pt.getZ();
 }
-Point::Point(int xx, int yy, int zz){
+Point::Point(float xx, float yy, float zz){
     x = xx;
     y = yy;
     z = zz;

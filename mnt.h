@@ -11,6 +11,7 @@ public:
     Mnt();
     void loadMnt(std::string fileName);
     std::vector<Point> lesPoints ;
+
 };
 
 #endif // MNT_H

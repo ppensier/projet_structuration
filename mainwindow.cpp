@@ -24,8 +24,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->widgetZoneVisu->setParent(this);
 //glWZone3D->setParent(this);
     ui->widgetZoneVisu->leMnt=new Mnt();
-         ui->widgetZoneVisu->leMnt->loadMnt("//home//gtsi//DDDgpx//ecrin10pt.xyz");
-         std::cout<<"voici le size des points"<<ui->widgetZoneVisu->leMnt->lesPoints.size();
+    ui->widgetZoneVisu->leMnt->loadMnt("//home//gtsi//DDDgpx//ecrin10pt.xyz");
+    std::cout<<"voici le size des points"<<ui->widgetZoneVisu->leMnt->lesPoints.size();
 
 
 }

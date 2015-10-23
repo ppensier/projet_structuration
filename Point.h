@@ -9,7 +9,10 @@ public:
   //Constructors
     Point();//Par defaut (normalement pas utilisé)
     Point(Point const&);//De copie
-    Point(int, int, int);//Avec paramètres
+    Point(float, float, float);//Avec paramètres
+    float x;
+    float y;
+    float z;
   //Getters
     float getX(void) const ;
     float getY(void) const ;
@@ -20,9 +23,7 @@ public:
     void setZ(float);
 private:
 
-    float x;
-    float y;
-    float z;
+
 };
 
 #endif // POINT_H
