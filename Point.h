@@ -10,6 +10,7 @@ public:
     Point();//Par defaut (normalement pas utilisé)
     Point(Point const&);//De copie
     Point(float, float, float);//Avec paramètres
+    int id_point;
     float x;
     float y;
     float z;

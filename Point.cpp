@@ -12,6 +12,7 @@ Point::Point()
     z=0.0;
 }
 Point::Point(const Point &pt){
+    id_point=pt.id_point;
     x = pt.getX();
     y = pt.getY();
     z = pt.getZ();

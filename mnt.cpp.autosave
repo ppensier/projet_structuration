@@ -54,7 +54,7 @@ void Mnt::loadMnt(string fileName)
 
     }*/
     for(int i=0;i<racine-1;i++)
-        {   for(int j=(i+1)*racine-1;j<(i+2)*racine;j++)
+        {   for(int j=(i+1)*racine;j<(i+2)*racine;j++)
             {
                 Triangle t1,t2;
                 t1.id_Triangle=j+1;
