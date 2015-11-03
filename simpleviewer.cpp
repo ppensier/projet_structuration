@@ -13,7 +13,8 @@ SimpleViewer::SimpleViewer(QWidget *parent)
 }
 // Draws a spiral
 void SimpleViewer::draw()
-{
+{ SimpleViewer::setSceneBoundingBox(leMnt->MIN_MNT,leMnt->MAX_MNT);
+    SimpleViewer::showEntireScene();
       glPointSize(10.0);
       /*glBegin(GL_POINTS);
 
