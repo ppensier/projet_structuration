@@ -14,18 +14,12 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-   /* cbMNT=NULL;
-    leMnt=NULL;
-    glWZone3D=NULL;
-    glWZone3D = new GLWidget;
-    glWZone3D->setParent(this);
-    glWZone3D->setGeometry(200,80,380,300);
-    glWZone3D->show();*/
+
     ui->widgetZoneVisu->setParent(this);
-//glWZone3D->setParent(this);
+
     ui->widgetZoneVisu->leMnt=new Mnt();
     ui->widgetZoneVisu->leMnt->loadMnt("//home//gtsi//DDDgpx//Ecrins2.xyz");
-    std::cout<<"voici le size des points"<<ui->widgetZoneVisu->leMnt->lesPoints.size();
+    ui->widgetZoneVisu->leMnt->BuildTriangles();
 
 
 }

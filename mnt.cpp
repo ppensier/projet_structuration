@@ -8,12 +8,12 @@
 using namespace std;
 Mnt::Mnt()
 {
-    MIN_MNT.z=1000000;
+    MIN_MNT.z=100000000;
     MAX_MNT.z=-100000;
     pasX=-1;
     pasY=-1;
-    MIN_MNT.x=1000000;
-    MIN_MNT.y=100000;
+    MIN_MNT.x=100000000;
+    MIN_MNT.y=100000000;
 
     MAX_MNT.x=-100000;
     MAX_MNT.y=-100000;
@@ -21,10 +21,11 @@ Mnt::Mnt()
 
 void Mnt::loadMnt(string fileName)
 {
-    //Lecture du fichier et construction des points
+    //Lecture du fichier et construction des points et initialisation des bounds et pas
     std::cout << "loading " <<fileName << " : debut..." << std::endl;
     ifstream fichier( fileName.data() );
     int nb=0;
+    int compteur=0;
     Point p;
     if(!fichier)
     {
@@ -33,6 +34,8 @@ void Mnt::loadMnt(string fileName)
     }
     while(!fichier.eof())
     {
+        //if(compteur%4==0)
+        {
 
         if(fichier >> p.x>> p.y>>p.z)
         {
@@ -54,31 +57,34 @@ void Mnt::loadMnt(string fileName)
                 if(p.y!=lesPoints[nb-2].y && pasY==-1) pasY=fabs(fabs(p.y)-fabs(lesPoints[0].y));
             }
 
-           //cout << p.id_point<<" "<<p.x<<" "<<p.y<<" "<<p.z<<endl;
 
         }
+
+        }
+        compteur++;
 
     }
 
     cout << "fin de lecture du fichier :"<<endl;
     cout << lesPoints.size()<<" Points construits"<<endl;
     fichier.close();
+
+  }
+void Mnt::initializBounding()
+{
+    //initiation des limites de l'étendu
+    MIN_MNT.x=lesPoints[0].x;
+    MIN_MNT.y=lesPoints[0].y;
+
+    MAX_MNT.x=lesPoints[lesPoints.size()-1].x;
+    MAX_MNT.y=lesPoints[lesPoints.size()-1].y;
+
+
+}
+void Mnt::BuildTriangles()
+{
     ///Construction des triangles
-    ///1-vérification du nombre des points
-    int racine=sqrt(lesPoints.size());
 
-    //2-création des triangles
-   /* for(int i=0;i<lesPoints.size()-2;i++)
-    {
-        Triangle t;
-        t.id_Triangle=i+1;
-        t.id_Sommet1=lesPoints[i].id_point;
-        t.id_Sommet2=lesPoints[i+1].id_point;
-        t.id_Sommet3=lesPoints[i+2].id_point;
-        lesTriangles.push_back(t);
-        cout << "mon triangle"<<t.id_Sommet1<<" "<<t.id_Sommet2<<" "<<t.id_Sommet3<<endl;
-
-    }*/
    int nbr_triangle=1;
    //initializBounding();
    int nL= ((MAX_MNT.y-MIN_MNT.y)/pasY)+1;
@@ -106,24 +112,5 @@ void Mnt::loadMnt(string fileName)
         }
 
     cout<<"le nombre de triangles crées :"<<lesTriangles.size();
-      /*for(int i=0;i<lesTriangles.size();i++)
-      { cout<<"/******triangle "<<i<<endl;
-        cout<<lesPoints[(lesTriangles[i].id_Sommet1)-1].getX()<<" "<<lesPoints[(lesTriangles[i].id_Sommet1)-1].getY()<<" "<<lesPoints[(lesTriangles[i].id_Sommet1)-1].getZ()<<endl;
-        cout<<lesPoints[(lesTriangles[i].id_Sommet2)-1].getX()<<" "<<lesPoints[(lesTriangles[i].id_Sommet2)-1].getY()<<" "<<lesPoints[(lesTriangles[i].id_Sommet2)-1].getZ()<<endl;
-       }*/
-
-
-
-  }
-void Mnt::initializBounding()
-{
-    //initiation des limites de l'étendu
-    MIN_MNT.x=lesPoints[0].x;
-    MIN_MNT.y=lesPoints[0].y;
-
-    MAX_MNT.x=lesPoints[lesPoints.size()-1].x;
-    MAX_MNT.y=lesPoints[lesPoints.size()-1].y;
-
-
 
 }

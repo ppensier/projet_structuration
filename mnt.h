@@ -12,6 +12,7 @@ class Mnt
 public:
     Mnt();
     void loadMnt(std::string fileName);
+    void BuildTriangles();
     void initializBounding();
     std::vector<Point> lesPoints ;
     std::vector<Triangle> lesTriangles ;
