@@ -22,13 +22,15 @@ SOURCES += main.cpp\
     Point.cpp \
     mnt.cpp \
     simpleviewer.cpp \
-    triangle.cpp
+    triangle.cpp \
+    dalle.cpp
 
 HEADERS  += mainwindow.h \
     glwidget.h \
     Point.h \
     mnt.h \
     simpleviewer.h \
-    triangle.h
+    triangle.h \
+    dalle.h
 
 FORMS    += mainwindow.ui

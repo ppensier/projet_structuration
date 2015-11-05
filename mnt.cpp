@@ -81,14 +81,50 @@ void Mnt::initializBounding()
 
 
 }
+void Mnt::CalculateBoundsDalle( Point minBounds, Point maxBounds) //initialize dalle.debut
+{
+    //initialisation
+    //initialisation du debut de la dalle : par défaut c'est le début de MNT
+    laDalle.debut.id_point= -1;
+    laDalle.debut.x= lesPoints[0].x;
+    laDalle.debut.y= lesPoints[0].y;
+    //initialisation de la fin de la dalle : par défaut c'est la fin de MNT
+    laDalle.fin.id_point= -1;
+    laDalle.fin.x= lesPoints[lesPoints.size()-1].x;
+    laDalle.fin.y= lesPoints[lesPoints.size()-1].y;
+    //algo: Depart.x<minBounds.x et Depart.x est le plus grand possible (idem pour y)
+    for(int i=0; i< lesPoints.size();i++)
+    {
+        if(lesPoints[i].x <= minBounds.x && lesPoints[i].y>= maxBounds.y && lesPoints[i].x>= laDalle.debut.x && lesPoints[i].y<= laDalle.debut.y)
+
+            {// remplace le point depart de dalle par le point de mnt: redéfinition de l'opérateur = sur point
+
+                 laDalle.debut.id_point= lesPoints[i].id_point;
+                 laDalle.debut.x= lesPoints[i].x;
+                 laDalle.debut.y= lesPoints[i].y;
+
+            }
+        if(lesPoints[i].x >= maxBounds.x && lesPoints[i].y<= minBounds.y && lesPoints[i].x<= laDalle.fin.x && lesPoints[i].y>= laDalle.fin.y)
+
+            {// remplace le point depart de dalle par le point de mnt: redéfinition de l'opérateur = sur point
+
+                 laDalle.fin.id_point= lesPoints[i].id_point;
+                 laDalle.fin.x= lesPoints[i].x;
+                 laDalle.fin.y= lesPoints[i].y;
+
+            }
+
+    }
+
+}
 void Mnt::BuildTriangles()
 {
     ///Construction des triangles
 
    int nbr_triangle=1;
    //initializBounding();
-   int nL= ((MAX_MNT.y-MIN_MNT.y)/pasY)+1;
-   int nC= ((MAX_MNT.x-MIN_MNT.x)/pasX)+1;
+    nL= ((MAX_MNT.y-MIN_MNT.y)/pasY)+1;
+    nC= ((MAX_MNT.x-MIN_MNT.x)/pasX)+1;
     for(int j=0;j<nL-1;j++)
         {   for(int i=0;i<nC-1;i++)
             {
@@ -112,5 +148,29 @@ void Mnt::BuildTriangles()
         }
 
     cout<<"le nombre de triangles crées :"<<lesTriangles.size();
+
+}
+void Mnt::CalculateIndicePointsDalle()
+{
+    int i=laDalle.debut.id_point;
+    int k=laDalle.debut.id_point;
+    while(i+nC<laDalle.fin.id_point)
+    {
+        i=i+nC;
+    }
+
+    laDalle.nC_dalle=(laDalle.fin.id_point)-i+1;
+    //ajout de l'indice du premier point de la dalle
+    laDalle.id_sesPoints.push_back(laDalle.debut.id_point);
+    while(k<i+nC<laDalle.fin.id_point)
+    {
+        for(int j=0;j<laDalle.nC_dalle;j++)
+            laDalle.id_sesPoints.push_back(k+j);
+        k=k+nC;
+    }
+    //ajout de l'indice du dernier point de la dalle
+    laDalle.id_sesPoints.push_back(laDalle.fin.id_point);
+
+
 
 }
