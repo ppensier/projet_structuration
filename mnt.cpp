@@ -68,6 +68,8 @@ void Mnt::loadMnt(string fileName)
     cout << "fin de lecture du fichier :"<<endl;
     cout << lesPoints.size()<<" Points construits"<<endl;
     fichier.close();
+     nL= ((MAX_MNT.y-MIN_MNT.y)/pasY)+1;
+     nC= ((MAX_MNT.x-MIN_MNT.x)/pasX)+1;
 
   }
 void Mnt::initializBounding()
@@ -119,58 +121,60 @@ void Mnt::CalculateBoundsDalle( Point minBounds, Point maxBounds) //initialize d
 }
 void Mnt::BuildTriangles()
 {
-    ///Construction des triangles
+
+
+    ///Construction des triangles de la dalle
 
    int nbr_triangle=1;
    //initializBounding();
-    nL= ((MAX_MNT.y-MIN_MNT.y)/pasY)+1;
-    nC= ((MAX_MNT.x-MIN_MNT.x)/pasX)+1;
-    for(int j=0;j<nL-1;j++)
-        {   for(int i=0;i<nC-1;i++)
+   // nL= ((MAX_MNT.y-MIN_MNT.y)/pasY)+1;
+   // nC= ((MAX_MNT.x-MIN_MNT.x)/pasX)+1;
+   int cst=laDalle.debut.id_point-1;
+   //if()
+
+    for(int j=0;j<laDalle.nL_dalle-1;j++)
+        {   for(int i=0;i<laDalle.nC_dalle-1;i++)
             {
                 Triangle t1,t2;
                 t1.id_Triangle=nbr_triangle;
-                t1.id_Sommet1=lesPoints[i+(j*nL)].id_point;
-                t1.id_Sommet2=lesPoints[i+1+(j*nL)].id_point;
-                t1.id_Sommet3=lesPoints[i+nC+(j*nL)].id_point;
-                lesTriangles.push_back(t1);
+                t1.id_Sommet1=lesPoints[i+(j*nC)+cst].id_point;
+                t1.id_Sommet2=lesPoints[i+1+(j*nC)+cst].id_point;
+                t1.id_Sommet3=lesPoints[i+nC+(j*nC)+cst].id_point;
+                laDalle.sesTriangles.push_back(t1);
                 nbr_triangle++;
                 //cout << "mon triangle"<<t1.id_Triangle<<" : "<<t1.id_Sommet1<<" "<<t1.id_Sommet2<<" "<<t1.id_Sommet3<<endl;
                 t2.id_Triangle=nbr_triangle;
-                t2.id_Sommet1=lesPoints[i+1+(j*nL)].id_point;
-                t2.id_Sommet2=lesPoints[i+nC+(j*nL)].id_point;
-                t2.id_Sommet3=lesPoints[i+1+nC+(j*nL)].id_point;
-                lesTriangles.push_back(t2);
+                t2.id_Sommet1=lesPoints[i+1+(j*nC)+cst].id_point;
+                t2.id_Sommet2=lesPoints[i+nC+(j*nC)+cst].id_point;
+                t2.id_Sommet3=lesPoints[i+1+nC+(j*nC)+cst].id_point;
+                laDalle.sesTriangles.push_back(t2);
                 //cout << "mon triangle "<<t2.id_Triangle<<" : "<<t2.id_Sommet1<<" "<<t2.id_Sommet2<<" "<<t2.id_Sommet3<<endl;
                 nbr_triangle++;
             }
 
         }
 
-    cout<<"le nombre de triangles crées :"<<lesTriangles.size();
-
+    cout<<"le nombre de triangles crées :"<<laDalle.sesTriangles.size();
 }
 void Mnt::CalculateIndicePointsDalle()
 {
     int i=laDalle.debut.id_point;
     int k=laDalle.debut.id_point;
+    laDalle.nL_dalle=1;
     while(i+nC<laDalle.fin.id_point)
     {
         i=i+nC;
+        laDalle.nL_dalle++;
     }
-
+    //laDalle.nL_dalle++;
     laDalle.nC_dalle=(laDalle.fin.id_point)-i+1;
-    //ajout de l'indice du premier point de la dalle
-    laDalle.id_sesPoints.push_back(laDalle.debut.id_point);
-    while(k<i+nC<laDalle.fin.id_point)
+
+    while(k<laDalle.fin.id_point)
     {
         for(int j=0;j<laDalle.nC_dalle;j++)
             laDalle.id_sesPoints.push_back(k+j);
         k=k+nC;
     }
-    //ajout de l'indice du dernier point de la dalle
-    laDalle.id_sesPoints.push_back(laDalle.fin.id_point);
-
 
 
 }

@@ -2,6 +2,7 @@
 #define DALLE_H
 #include "Point.h"
 #include <vector>
+#include "triangle.h"
 
 class Dalle
 {
@@ -10,13 +11,14 @@ public:
 
     Point debut;
     Point fin;
-    std::vector<int> id_sesPoints;
-    std::vector<int> id_sesTriangles;
     int nC_dalle;
     int nL_dalle;
+    std::vector<int> id_sesPoints;
+    std::vector<Triangle> sesTriangles ;
+
     /******Méthodes*****/
    //
-
+     void BuildTriangles();
 
 
 };

@@ -13,7 +13,19 @@ SimpleViewer::SimpleViewer(QWidget *parent)
 }
 // Draws a spiral
 void SimpleViewer::draw()
-{ SimpleViewer::setSceneBoundingBox(leMnt->MIN_MNT,leMnt->MAX_MNT);
+{
+    qglviewer::Vec boundingMin;
+    qglviewer::Vec boundingMax;
+    //
+    boundingMin.x=leMnt->laDalle.debut.x;
+    boundingMin.y=leMnt->laDalle.debut.y;
+    boundingMin.z=leMnt->MIN_MNT.z;
+    //
+    boundingMax.x=leMnt->laDalle.fin.x;
+    boundingMax.y=leMnt->laDalle.fin.y;
+    boundingMax.z=leMnt->MAX_MNT.z;
+
+    SimpleViewer::setSceneBoundingBox(boundingMin,boundingMax);
     SimpleViewer::showEntireScene();
       glPointSize(10.0);
       /*glBegin(GL_POINTS);
@@ -24,7 +36,7 @@ void SimpleViewer::draw()
       }*/
       glBegin(GL_TRIANGLES);
 
-            for(int i=0; i<leMnt->lesTriangles.size();i++)
+            for(int i=0; i<leMnt->laDalle.sesTriangles.size();i++)
             { if(i%3==1)
                     glColor3f(0.0f,0.0f,1.0f); //blue color
               if(i%3==2)
@@ -32,10 +44,10 @@ void SimpleViewer::draw()
               if(i%3==0)
                     glColor3f(1.0f,0.0f,1.0f); //red color
               //glVertex3f(leMnt->lesPoints[leMnt->lesTriangles[i].Sommet1].getX(),leMnt->lesPoints[leMnt->lesTriangles[i].Sommet1].getY(),leMnt->lesPoints[leMnt->lesTriangles[i].Sommet1].getZ());
-              glVertex3f(leMnt->lesPoints[(leMnt->lesTriangles[i].id_Sommet1)-1].getX(),leMnt->lesPoints[(leMnt->lesTriangles[i].id_Sommet1)-1].getY(),leMnt->lesPoints[(leMnt->lesTriangles[i].id_Sommet1)-1].getZ());
+              glVertex3f(leMnt->lesPoints[(leMnt->laDalle.sesTriangles[i].id_Sommet1)-1].getX(),leMnt->lesPoints[(leMnt->laDalle.sesTriangles[i].id_Sommet1)-1].getY(),leMnt->lesPoints[(leMnt->laDalle.sesTriangles[i].id_Sommet1)-1].getZ());
 
-              glVertex3f(leMnt->lesPoints[(leMnt->lesTriangles[i].id_Sommet2)-1].getX(),leMnt->lesPoints[(leMnt->lesTriangles[i].id_Sommet2)-1].getY(),leMnt->lesPoints[(leMnt->lesTriangles[i].id_Sommet2)-1].getZ());
-              glVertex3f(leMnt->lesPoints[(leMnt->lesTriangles[i].id_Sommet3)-1].getX(),leMnt->lesPoints[(leMnt->lesTriangles[i].id_Sommet3)-1].getY(),leMnt->lesPoints[(leMnt->lesTriangles[i].id_Sommet3)-1].getZ());
+              glVertex3f(leMnt->lesPoints[(leMnt->laDalle.sesTriangles[i].id_Sommet2)-1].getX(),leMnt->lesPoints[(leMnt->laDalle.sesTriangles[i].id_Sommet2)-1].getY(),leMnt->lesPoints[(leMnt->laDalle.sesTriangles[i].id_Sommet2)-1].getZ());
+              glVertex3f(leMnt->lesPoints[(leMnt->laDalle.sesTriangles[i].id_Sommet3)-1].getX(),leMnt->lesPoints[(leMnt->laDalle.sesTriangles[i].id_Sommet3)-1].getY(),leMnt->lesPoints[(leMnt->laDalle.sesTriangles[i].id_Sommet3)-1].getZ());
 
 
             }
