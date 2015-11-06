@@ -20,8 +20,8 @@ public:
     qglviewer::Vec MAX_MNT;
     float pasX;
     float pasY;
-
-
+    int nL;
+    int nC;
 
 };
 

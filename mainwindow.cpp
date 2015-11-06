@@ -14,20 +14,18 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-
-    ui->widgetZoneVisu->setParent(this);
-
     ui->widgetZoneVisu->leMnt=new Mnt();
-    ui->widgetZoneVisu->leMnt->loadMnt("//home//gtsi//DDDgpx//Ecrins2.xyz");
+    ui->widgetZoneVisu->leMnt->loadMnt("//home//gtsi//Téléchargements//Ecrin.xyz");
+    ui->widgetZoneVisu->leGpx=new gpx();
     ui->widgetZoneVisu->leMnt->BuildTriangles();
 
-
+    ui->widgetZoneVisu->leGpx->troisLesPlusProches(*ui->widgetZoneVisu->leMnt, ui->widgetZoneVisu->leGpx->ptsGpx[0]);
 }
 
 void MainWindow::on_Action_ouvrirMNT_triggered()
 {
 
-
+/*
     QString fileName = QFileDialog::getOpenFileName(this,
         tr("Open MNT"), "/home/jana", tr("All files  (*.xyz)"));
 
@@ -39,7 +37,7 @@ void MainWindow::on_Action_ouvrirMNT_triggered()
     cbMNT->show();
     //récupération des coordonnées des points à partir du fichier chargé
     //ui->widgetZoneVisu->loadMnt(fileName.toStdString());
-
+*/
 }
 
 MainWindow::~MainWindow()

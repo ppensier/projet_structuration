@@ -68,7 +68,8 @@ void Mnt::loadMnt(string fileName)
     cout << "fin de lecture du fichier :"<<endl;
     cout << lesPoints.size()<<" Points construits"<<endl;
     fichier.close();
-
+    nL = ((MAX_MNT.y-MIN_MNT.y) / pasX) +1;
+    nC = ((MAX_MNT.x-MIN_MNT.x) / pasY) +1;
   }
 void Mnt::initializBounding()
 {
@@ -111,6 +112,6 @@ void Mnt::BuildTriangles()
 
         }
 
-    cout<<"le nombre de triangles crées :"<<lesTriangles.size();
+    cout<<"le nombre de triangles crées :"<<lesTriangles.size() << endl;
 
 }

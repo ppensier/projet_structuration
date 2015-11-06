@@ -4,12 +4,10 @@ using namespace std;
 
 SimpleViewer::SimpleViewer()
 {
-
-
 }
 SimpleViewer::SimpleViewer(QWidget *parent)
 {
-    //leMnt= NULL;
+    this->setParent(parent);
 }
 // Draws a spiral
 void SimpleViewer::draw()
@@ -66,4 +64,6 @@ QString SimpleViewer::helpString() const
 SimpleViewer::~SimpleViewer()
 {
     delete leMnt;
+    delete leGpx;
 }
+
