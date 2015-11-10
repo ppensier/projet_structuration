@@ -68,8 +68,10 @@ void Mnt::loadMnt(string fileName)
     cout << "fin de lecture du fichier :"<<endl;
     cout << lesPoints.size()<<" Points construits"<<endl;
     fichier.close();
+
      nL= ((MAX_MNT.y-MIN_MNT.y)/pasY)+1;
      nC= ((MAX_MNT.x-MIN_MNT.x)/pasX)+1;
+
 
   }
 void Mnt::initializBounding()
@@ -83,7 +85,7 @@ void Mnt::initializBounding()
 
 
 }
-void Mnt::CalculateBoundsDalle( Point minBounds, Point maxBounds) //initialize dalle.debut
+/*void Mnt::CalculateBoundsDalle( Point minBounds, Point maxBounds) //initialize dalle.debut
 {
     //initialisation
     //initialisation du debut de la dalle : par défaut c'est le début de MNT
@@ -154,6 +156,7 @@ void Mnt::BuildTriangles()
 
         }
 
+
     cout<<"le nombre de triangles crées :"<<laDalle.sesTriangles.size();
 }
 void Mnt::CalculateIndicePointsDalle()
@@ -177,4 +180,6 @@ void Mnt::CalculateIndicePointsDalle()
     }
 
 
+
 }
+*/

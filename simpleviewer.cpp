@@ -4,12 +4,10 @@ using namespace std;
 
 SimpleViewer::SimpleViewer()
 {
-
-
 }
 SimpleViewer::SimpleViewer(QWidget *parent)
 {
-    //leMnt= NULL;
+    this->setParent(parent);
 }
 // Draws a spiral
 void SimpleViewer::draw()
@@ -17,12 +15,12 @@ void SimpleViewer::draw()
     qglviewer::Vec boundingMin;
     qglviewer::Vec boundingMax;
     //
-    boundingMin.x=leMnt->laDalle.debut.x;
-    boundingMin.y=leMnt->laDalle.debut.y;
+    boundingMin.x=leGpx->gpx_dalle.debut.x;
+    boundingMin.y=leGpx->gpx_dalle.debut.y;
     boundingMin.z=leMnt->MIN_MNT.z;
     //
-    boundingMax.x=leMnt->laDalle.fin.x;
-    boundingMax.y=leMnt->laDalle.fin.y;
+    boundingMax.x=leGpx->gpx_dalle.fin.x;
+    boundingMax.y=leGpx->gpx_dalle.fin.y;
     boundingMax.z=leMnt->MAX_MNT.z;
 
     SimpleViewer::setSceneBoundingBox(boundingMin,boundingMax);
@@ -36,7 +34,7 @@ void SimpleViewer::draw()
       }*/
       glBegin(GL_TRIANGLES);
 
-            for(int i=0; i<leMnt->laDalle.sesTriangles.size();i++)
+            for(int i=0; i<leGpx->gpx_dalle.sesTriangles.size();i++)
             { if(i%3==1)
                     glColor3f(0.0f,0.0f,1.0f); //blue color
               if(i%3==2)
@@ -44,10 +42,10 @@ void SimpleViewer::draw()
               if(i%3==0)
                     glColor3f(1.0f,0.0f,1.0f); //red color
               //glVertex3f(leMnt->lesPoints[leMnt->lesTriangles[i].Sommet1].getX(),leMnt->lesPoints[leMnt->lesTriangles[i].Sommet1].getY(),leMnt->lesPoints[leMnt->lesTriangles[i].Sommet1].getZ());
-              glVertex3f(leMnt->lesPoints[(leMnt->laDalle.sesTriangles[i].id_Sommet1)-1].getX(),leMnt->lesPoints[(leMnt->laDalle.sesTriangles[i].id_Sommet1)-1].getY(),leMnt->lesPoints[(leMnt->laDalle.sesTriangles[i].id_Sommet1)-1].getZ());
+              glVertex3f(leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet1)-1].getX(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet1)-1].getY(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet1)-1].getZ());
 
-              glVertex3f(leMnt->lesPoints[(leMnt->laDalle.sesTriangles[i].id_Sommet2)-1].getX(),leMnt->lesPoints[(leMnt->laDalle.sesTriangles[i].id_Sommet2)-1].getY(),leMnt->lesPoints[(leMnt->laDalle.sesTriangles[i].id_Sommet2)-1].getZ());
-              glVertex3f(leMnt->lesPoints[(leMnt->laDalle.sesTriangles[i].id_Sommet3)-1].getX(),leMnt->lesPoints[(leMnt->laDalle.sesTriangles[i].id_Sommet3)-1].getY(),leMnt->lesPoints[(leMnt->laDalle.sesTriangles[i].id_Sommet3)-1].getZ());
+              glVertex3f(leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet2)-1].getX(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet2)-1].getY(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet2)-1].getZ());
+              glVertex3f(leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet3)-1].getX(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet3)-1].getY(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet3)-1].getZ());
 
 
             }
@@ -78,4 +76,6 @@ QString SimpleViewer::helpString() const
 SimpleViewer::~SimpleViewer()
 {
     delete leMnt;
+    delete leGpx;
 }
+

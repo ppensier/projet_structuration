@@ -8,7 +8,7 @@
 
 QT       += core gui opengl xml
 
-LIBS += -lQGLViewer
+LIBS += -lQGLViewer -lproj
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -23,7 +23,10 @@ SOURCES += main.cpp\
     mnt.cpp \
     simpleviewer.cpp \
     triangle.cpp \
-    dalle.cpp
+    dalle.cpp \
+    gpx.cpp \
+    help.cpp
+
 
 HEADERS  += mainwindow.h \
     glwidget.h \
@@ -31,6 +34,9 @@ HEADERS  += mainwindow.h \
     mnt.h \
     simpleviewer.h \
     triangle.h \
-    dalle.h
+    dalle.h \
+    gpx.h \
+    help.h
+
 
 FORMS    += mainwindow.ui

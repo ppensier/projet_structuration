@@ -15,8 +15,6 @@ public:
     void loadMnt(std::string fileName);
     void BuildTriangles();
     void initializBounding();
-    void CalculateBoundsDalle(Point minBounds, Point maxBounds); ////initialise dalle.debut par le point de MNT le plus proche à l'extrémité min du GPX
-    void CalculateIndicePointsDalle(); ////initialise dalle.debut par le point de MNT le plus proche à l'extrémité min du GPX
 
     /*******/
     std::vector<Point> lesPoints ;
@@ -25,9 +23,11 @@ public:
     qglviewer::Vec MAX_MNT;
     float pasX;
     float pasY;
+
     int nC;
     int nL;
     Dalle laDalle;
+
 
 
 };
