@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>598</width>
-    <height>445</height>
+    <width>831</width>
+    <height>606</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,23 +19,105 @@
      <rect>
       <x>10</x>
       <y>30</y>
-      <width>181</width>
-      <height>171</height>
+      <width>201</width>
+      <height>221</height>
      </rect>
     </property>
     <property name="title">
      <string>Liste des fichiers chargés</string>
     </property>
+    <zorder>frame</zorder>
    </widget>
    <widget class="SimpleViewer" name="widgetZoneVisu" native="true">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>30</y>
-      <width>371</width>
-      <height>331</height>
+      <x>230</x>
+      <y>40</y>
+      <width>581</width>
+      <height>471</height>
      </rect>
     </property>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>270</y>
+      <width>221</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>10</y>
+       <width>201</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Faites jouer votre GPX</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>50</y>
+       <width>97</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Play</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>100</y>
+       <width>271</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Choisissez la vitesse de</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>46</x>
+       <y>120</y>
+       <width>111</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string> la randonnée</string>
+     </property>
+    </widget>
+    <widget class="QSlider" name="horizontalSlider">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>150</y>
+       <width>160</width>
+       <height>19</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -43,7 +125,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>598</width>
+     <width>831</width>
      <height>29</height>
     </rect>
    </property>
@@ -52,6 +134,7 @@
      <string>ouvrir</string>
     </property>
     <addaction name="Action_ouvrirMNT"/>
+    <addaction name="actionOuvrir_GPX"/>
    </widget>
    <addaction name="menuOuvrir"/>
   </widget>
@@ -67,6 +150,11 @@
   <action name="Action_ouvrirMNT">
    <property name="text">
     <string>Ouvrir mnt</string>
+   </property>
+  </action>
+  <action name="actionOuvrir_GPX">
+   <property name="text">
+    <string>Ouvrir GPX</string>
    </property>
   </action>
  </widget>

@@ -18,7 +18,7 @@ public:
 
     ~MainWindow();
     QCheckBox *cbMNT ;
-   // GLWidget *glWZone3D;
+    QCheckBox *cbGPX ;
 
     /*****Les méthodes******/
     void loadMnt(std::string fileName);
@@ -31,6 +31,7 @@ signals:
 
 private slots:
      void on_Action_ouvrirMNT_triggered();
+     void on_actionOuvrir_GPX_triggered();
 
 private:
     Ui::MainWindow *ui;
