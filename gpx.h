@@ -27,6 +27,8 @@ public:
     float maxlat;
     float minlon;
     float maxlon;
+    float minZ;
+    float maxZ;
 
     Dalle gpx_dalle;
     void CalculateBoundsDalle(Mnt& unMnt); ////initialise dalle.debut par le point de MNT le plus proche à l'extrémité min du GPX

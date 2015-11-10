@@ -3,7 +3,6 @@
 #include "Point.h"
 #include <vector>
 #include "triangle.h"
-#include "mnt.h"
 
 class Dalle
 {
@@ -16,6 +15,8 @@ public:
     int nL_dalle;
     float z_min;
     float z_max;
+    float z_max_ses_triangles;
+    float z_min_ses_triangles;
     std::vector<int> id_sesPoints;
     std::vector<Triangle> sesTriangles ;
 
@@ -23,7 +24,7 @@ public:
     /******Méthodes*****/
    //
      void BuildTriangles();
-     void initialize_altitude(MNT & unMnt);
+     //void initialize_altitude(MNT & unMnt);
 
 
 };

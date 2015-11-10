@@ -21,18 +21,26 @@ MainWindow::MainWindow(QWidget *parent) :
     //4-Retrouver les triangles de dalle à partir des points de la dalle : leMnt->setTriangles();
 //bounds de GPX : voir Romain...
     Point BoundsMin;
-    BoundsMin.x=900111;
+    BoundsMin.x=ui->widgetZoneVisu->leMnt->MIN_MNT.x;
+            //900111;
+            //;
             //;0.1
             //980000
-    BoundsMin.y=1900026;
+    BoundsMin.y=ui->widgetZoneVisu->leMnt->MIN_MNT.y;
+            //1900026;
+            //;
             //;-0.75
             //1904000
     Point BoundsMax;
-    BoundsMax.x= 900511;
+    BoundsMax.x= ui->widgetZoneVisu->leMnt->MAX_MNT.x;
+            //900511;
+            //;
             //;0.9
             //990000
             ////
-    BoundsMax.y= 1900126;
+    BoundsMax.y= ui->widgetZoneVisu->leMnt->MAX_MNT.y;
+            //1900126;
+            //;
             //;-0.1
             //1940000
             ////

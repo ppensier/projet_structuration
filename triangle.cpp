@@ -17,5 +17,6 @@ Triangle::Triangle(Triangle const& tr)
     id_Sommet1 = tr.id_Sommet1;
     id_Sommet2 = tr.id_Sommet2;
     id_Sommet3 = tr.id_Sommet3;
+    z_moy=tr.z_moy;
 }
 

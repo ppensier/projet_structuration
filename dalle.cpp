@@ -17,7 +17,3 @@ void Dalle::BuildTriangles()
     fin=f;
 }
 */
- void Dalle::initialize_altitude(MNT & unMnt)
- {
-
- }

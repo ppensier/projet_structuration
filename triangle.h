@@ -12,6 +12,7 @@ public:
     int id_Sommet1;
     int id_Sommet2;
     int id_Sommet3;
+    float z_moy;
 };
 
 #endif // TRIANGLE_H

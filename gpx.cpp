@@ -12,6 +12,7 @@ using namespace std;
 gpx::gpx()
 {
 
+
 }
 void gpx::loadGpx(std::string fileName){
 
@@ -146,6 +147,10 @@ void gpx::CalculateBoundsDalle( Mnt &unMnt) //initialize dalle.debut et fin
 //Initialise aussi le nombre de colonne et de lignes de la grille de DAlle
 void gpx::CalculateIndicePointsDalle(Mnt &unMnt)
 {
+    //initialisation des Zmin et Zmax de dalle
+    gpx_dalle.z_min= unMnt.MAX_MNT.z;
+    gpx_dalle.z_max=unMnt.MIN_MNT.z;
+
     int i=gpx_dalle.debut.id_point;
     int k=gpx_dalle.debut.id_point;
     gpx_dalle.nL_dalle=1;
@@ -160,7 +165,15 @@ void gpx::CalculateIndicePointsDalle(Mnt &unMnt)
     while(k<gpx_dalle.fin.id_point)
     {
         for(int j=0;j<gpx_dalle.nC_dalle;j++)
-            gpx_dalle.id_sesPoints.push_back(k+j);
+           {
+              gpx_dalle.id_sesPoints.push_back(k+j);
+              if(unMnt.lesPoints[k+j].z<gpx_dalle.z_min)
+                  gpx_dalle.z_min=unMnt.lesPoints[k+j].z;
+              if(unMnt.lesPoints[k+j].z>gpx_dalle.z_max)
+                  gpx_dalle.z_max=unMnt.lesPoints[k+j].z;
+
+
+           }
         k=k+unMnt.nC;
     }
 
@@ -170,7 +183,8 @@ void gpx::CalculateIndicePointsDalle(Mnt &unMnt)
 
 void gpx::BuildTriangles(Mnt &unMnt)
 {
-
+    gpx_dalle.z_max_ses_triangles=0;
+    gpx_dalle.z_min_ses_triangles=1000000;
 
     ///Construction des triangles de la dalle
 
@@ -189,22 +203,32 @@ void gpx::BuildTriangles(Mnt &unMnt)
                 t1.id_Sommet1=unMnt.lesPoints[i+(j*unMnt.nC)+cst].id_point;
                 t1.id_Sommet2=unMnt.lesPoints[i+1+(j*unMnt.nC)+cst].id_point;
                 t1.id_Sommet3=unMnt.lesPoints[i+unMnt.nC+(j*unMnt.nC)+cst].id_point;
+                t1.z_moy=(unMnt.lesPoints[i+(j*unMnt.nC)+cst].z+unMnt.lesPoints[i+1+(j*unMnt.nC)+cst].z+unMnt.lesPoints[i+unMnt.nC+(j*unMnt.nC)+cst].z)/3;
                 gpx_dalle.sesTriangles.push_back(t1);
+                if(t1.z_moy> gpx_dalle.z_max_ses_triangles)
+                     gpx_dalle.z_max_ses_triangles=t1.z_moy;
+                if(t1.z_moy< gpx_dalle.z_min_ses_triangles)
+                     gpx_dalle.z_min_ses_triangles=t1.z_moy;
                 nbr_triangle++;
                 //cout << "mon triangle"<<t1.id_Triangle<<" : "<<t1.id_Sommet1<<" "<<t1.id_Sommet2<<" "<<t1.id_Sommet3<<endl;
                 t2.id_Triangle=nbr_triangle;
                 t2.id_Sommet1=unMnt.lesPoints[i+1+(j*unMnt.nC)+cst].id_point;
                 t2.id_Sommet2=unMnt.lesPoints[i+unMnt.nC+(j*unMnt.nC)+cst].id_point;
                 t2.id_Sommet3=unMnt.lesPoints[i+1+unMnt.nC+(j*unMnt.nC)+cst].id_point;
+                t2.z_moy=(unMnt.lesPoints[i+1+unMnt.nC+(j*unMnt.nC)+cst].z+unMnt.lesPoints[i+1+(j*unMnt.nC)+cst].z+unMnt.lesPoints[i+unMnt.nC+(j*unMnt.nC)+cst].z)/3;
                 gpx_dalle.sesTriangles.push_back(t2);
                 //cout << "mon triangle "<<t2.id_Triangle<<" : "<<t2.id_Sommet1<<" "<<t2.id_Sommet2<<" "<<t2.id_Sommet3<<endl;
+                if(t2.z_moy> gpx_dalle.z_max_ses_triangles)
+                     gpx_dalle.z_max_ses_triangles=t2.z_moy;
+                if(t2.z_moy< gpx_dalle.z_min_ses_triangles)
+                     gpx_dalle.z_min_ses_triangles=t2.z_moy;
                 nbr_triangle++;
             }
 
         }
 
 
-    cout<<"le nombre de triangles crées :"<<gpx_dalle.sesTriangles.size();
+                cout<<"le nombre de triangles crées :"<<gpx_dalle.sesTriangles.size();
 }
 
 
