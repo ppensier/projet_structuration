@@ -15,7 +15,7 @@ protected :
   virtual void draw();
   virtual void init();
   virtual QString helpString() const;
-    void animate();
+   void animate();
 public :
 
     SimpleViewer();
@@ -25,7 +25,11 @@ public :
     gpx *leGpx = NULL;
     Randonneur *gentilhomme= NULL;
     QOpenGLTexture *textureSol;
+    bool mntDisplayed=false;
     void loadTexture();
+    void afficheTriangleCouleur();
+    void afficheQuadsTexture();
+    void updateView();
 
 
 };

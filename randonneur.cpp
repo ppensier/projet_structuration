@@ -20,7 +20,7 @@ void Randonneur::bouge()
             pos_.x=pos_.x+pasX;
             pos_.y=pos_.y+pasY;
             pos_.z=pos_.z+pasZ;
-            std::cout<<"***iteration "<<i<<" : "<<pos_.x<<","<<pos_.y<<","<<pos_.z<<std::endl;
+            //std::cout<<"***iteration "<<i<<" : "<<pos_.x<<","<<pos_.y<<","<<pos_.z<<std::endl;
         }
 
 }
@@ -43,7 +43,7 @@ void Randonneur::init()
             pos_.x = randonnee[i].x;
             pos_.y = randonnee[i].y;
             pos_.z = randonnee[i].z;
-            std::cout<<"iteration "<<i<<" :" <<pos_.x<<","<<pos_.y<<","<<pos_.z<<std::endl;
+           // std::cout<<"iteration "<<i<<" :" <<pos_.x<<","<<pos_.y<<","<<pos_.z<<std::endl;
 
         }
 
@@ -62,16 +62,16 @@ void Randonneur::init()
          if(normX==0)
             pasX=0;
          else
-            pasX=(randonnee[i+1].x-pos_.x)*vitesse;
+            pasX=(randonnee[i+1].x-pos_.x)*saVitesse;
 
          if(normY==0)
             pasY=0;
          else
-            pasY=(randonnee[i+1].y-pos_.y)*vitesse;
+            pasY=(randonnee[i+1].y-pos_.y)*saVitesse;
          if(normZ==0)
             pasZ=0;
          else
-            pasZ=(randonnee[i+1].z-pos_.z)*vitesse;
+            pasZ=(randonnee[i+1].z-pos_.z)*saVitesse;
     }
 
     }

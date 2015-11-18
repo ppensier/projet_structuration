@@ -30,7 +30,7 @@ void MainWindow::on_Action_ouvrirMNT_triggered()
 
     cbMNT->move(10,100);
     cbMNT->show();
-
+    //cbMNT->isCheckable()=false;
     ui->widgetZoneVisu->leMnt=new Mnt();
 
     ui->widgetZoneVisu->leMnt->loadMnt(fileName.toStdString());
@@ -55,7 +55,7 @@ void MainWindow::on_actionOuvrir_GPX_triggered()
 
 
     //bounds de GPX : voir Romain...
-       /* Point BoundsMin;
+   /*      Point BoundsMin;
         BoundsMin.x=0.1;
 
         BoundsMin.y=-0.75;
@@ -63,8 +63,8 @@ void MainWindow::on_actionOuvrir_GPX_triggered()
         Point BoundsMax;
         BoundsMax.x= 0.9;
 
-        BoundsMax.y= -0.1;
-                */
+        BoundsMax.y= -0.1;*/
+
 
         Point BoundsMin;
         BoundsMin.x=900111;
@@ -88,13 +88,9 @@ void MainWindow::on_actionOuvrir_GPX_triggered()
         ui->widgetZoneVisu->leGpx->CalculateIndicePointsDalle(*(ui->widgetZoneVisu->leMnt));
 
         ui->widgetZoneVisu->leGpx->BuildTriangles(*(ui->widgetZoneVisu->leMnt));
-        //Construire la trajectoire
-        ui->widgetZoneVisu->leGpx->CalculateTrajectoire(*(ui->widgetZoneVisu->leMnt));
 
-         // creation du rondonneur et affectation de la trajectoire
-        ui->widgetZoneVisu->gentilhomme = new Randonneur();
-        ui->widgetZoneVisu->gentilhomme->randonnee=ui->widgetZoneVisu->leGpx->trajectoire;
-
+        ui->widgetZoneVisu->updateView();
+        //cbMNT->isCheckable()=true;
 
 }
 
@@ -103,5 +99,31 @@ MainWindow::~MainWindow()
     delete cbMNT;
     delete cbGPX;
     delete ui;
+
+}
+
+void MainWindow::on_play_clicked()
+{
+   if(ui->widgetZoneVisu->leGpx==NULL || ui->widgetZoneVisu->leMnt ==NULL)
+       return ;
+   //Construire la trajectoire
+   ui->widgetZoneVisu->leGpx->CalculateTrajectoire(*(ui->widgetZoneVisu->leMnt));
+
+
+    // creation du rondonneur et affectation de la trajectoire
+   ui->widgetZoneVisu->gentilhomme = new Randonneur();
+   ui->widgetZoneVisu->gentilhomme->randonnee=ui->widgetZoneVisu->leGpx->trajectoire;
+   ui->widgetZoneVisu->gentilhomme->saVitesse= ui->horizontalSlider->value()/10;
+   ui->widgetZoneVisu->updateView();
+   ui->widgetZoneVisu->startAnimation();
+
+
+}
+
+
+
+void MainWindow::on_horizontalSlider_valueChanged(int value)
+{
+    if ((ui->widgetZoneVisu->gentilhomme)!=NULL ) ui->widgetZoneVisu->gentilhomme->saVitesse=value/10;
 
 }
