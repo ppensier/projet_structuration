@@ -16,31 +16,6 @@ MainWindow::MainWindow(QWidget *parent) :
     cbMNT=NULL;
     cbGPX=NULL;
 
-   /* ui->widgetZoneVisu->leMnt=new Mnt();
-
-    ui->widgetZoneVisu->leMnt->loadMnt("//home//gtsi//DDDgpx//Ecrins2.xyz");
-
-    //4-Retrouver les triangles de dalle à partir des points de la dalle : leMnt->setTriangles();
-
-//1-Trouver les deux points délimitant la dalle leMnt-> ; leMnt->CalculateMaxDalle(maxBounds);
-//2-Construire la dalle : leMnt->dalle.setBounds(p1,p2);
-
-//ui->widgetZoneVisu->leMnt->CalculateBoundsDalle(BoundsMin,BoundsMax);
-
-//3-Définir les indices du maillage de la dalle : leMnt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           Dalle();
-
-ui->widgetZoneVisu->leGpx=new gpx();
-ui->widgetZoneVisu->leGpx->loadGpx("");
-ui->widgetZoneVisu->leGpx->minlat=BoundsMin.y;
-ui->widgetZoneVisu->leGpx->minlon=BoundsMin.x;
-ui->widgetZoneVisu->leGpx->maxlat=BoundsMax.y;
-ui->widgetZoneVisu->leGpx->maxlon=BoundsMax.x;
-ui->widgetZoneVisu->leGpx->CalculateBoundsDalle(*(ui->widgetZoneVisu->leMnt));
-
-ui->widgetZoneVisu->leGpx->CalculateIndicePointsDalle(*(ui->widgetZoneVisu->leMnt));
-
-ui->widgetZoneVisu->leGpx->BuildTriangles(*(ui->widgetZoneVisu->leMnt));*/
-
 }
 
 void MainWindow::on_Action_ouvrirMNT_triggered()
@@ -55,8 +30,6 @@ void MainWindow::on_Action_ouvrirMNT_triggered()
 
     cbMNT->move(10,100);
     cbMNT->show();
-    //récupération des coordonnées des points à partir du fichier chargé
-    //ui->widgetZoneVisu->loadMnt();
 
     ui->widgetZoneVisu->leMnt=new Mnt();
 
@@ -82,30 +55,28 @@ void MainWindow::on_actionOuvrir_GPX_triggered()
 
 
     //bounds de GPX : voir Romain...
+       /* Point BoundsMin;
+        BoundsMin.x=0.1;
+
+        BoundsMin.y=-0.75;
+
+        Point BoundsMax;
+        BoundsMax.x= 0.9;
+
+        BoundsMax.y= -0.1;
+                */
+
         Point BoundsMin;
         BoundsMin.x=900111;
-                //
-                //;
-                //;0.1
-                //980000
+
         BoundsMin.y=1900026;
-                //
-                //;
-                //;-0.75
-                //1904000
+
         Point BoundsMax;
         BoundsMax.x= 900511;
-                //
-                //;
-                //;0.9
-                //990000
-                ////
+
         BoundsMax.y= 1900126;
-                //
-                //;
-                //;-0.1
-                //1940000
-                ////
+
+
         ui->widgetZoneVisu->leGpx=new gpx();
         ui->widgetZoneVisu->leGpx->loadGpx("");
         ui->widgetZoneVisu->leGpx->minlat=BoundsMin.y;
@@ -117,6 +88,12 @@ void MainWindow::on_actionOuvrir_GPX_triggered()
         ui->widgetZoneVisu->leGpx->CalculateIndicePointsDalle(*(ui->widgetZoneVisu->leMnt));
 
         ui->widgetZoneVisu->leGpx->BuildTriangles(*(ui->widgetZoneVisu->leMnt));
+        //Construire la trajectoire
+        ui->widgetZoneVisu->leGpx->CalculateTrajectoire(*(ui->widgetZoneVisu->leMnt));
+
+         // creation du rondonneur et affectation de la trajectoire
+        ui->widgetZoneVisu->gentilhomme = new Randonneur();
+        ui->widgetZoneVisu->gentilhomme->randonnee=ui->widgetZoneVisu->leGpx->trajectoire;
 
 
 }

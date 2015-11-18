@@ -21,7 +21,7 @@ public:
     QCheckBox *cbGPX ;
 
     /*****Les méthodes******/
-    void loadMnt(std::string fileName);
+
 
 
 

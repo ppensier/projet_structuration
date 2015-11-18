@@ -5,6 +5,8 @@
 #include "mnt.h"
 #include "gpx.h"
 #include <triangle.h>
+#include <randonneur.h>
+#include <QOpenGLTexture>
 
 class SimpleViewer : public QGLViewer
 {
@@ -13,6 +15,7 @@ protected :
   virtual void draw();
   virtual void init();
   virtual QString helpString() const;
+    void animate();
 public :
 
     SimpleViewer();
@@ -20,6 +23,9 @@ public :
     SimpleViewer(QWidget *parent = 0);
     Mnt *leMnt = NULL;
     gpx *leGpx = NULL;
+    Randonneur *gentilhomme= NULL;
+    QOpenGLTexture *textureSol;
+    void loadTexture();
 
 
 };

@@ -230,5 +230,16 @@ void gpx::BuildTriangles(Mnt &unMnt)
 
                 cout<<"le nombre de triangles crées :"<<gpx_dalle.sesTriangles.size();
 }
+//construit une fausse trajectoire pour le test
+void gpx::CalculateTrajectoire(Mnt &unMnt)
+{
+    for(int i=0;i<gpx_dalle.id_sesPoints.size();i++)
+    {
+        trajectoire.push_back(unMnt.lesPoints[gpx_dalle.id_sesPoints[i]-1]);
+
+    }
+
+
+}
 
 

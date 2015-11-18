@@ -28,6 +28,10 @@ void SimpleViewer::draw()
     SimpleViewer::showEntireScene();
       glPointSize(10.0);
 
+       textureSol->bind();
+       glEnable(GL_TEXTURE_2D);
+
+
       float ratio;
       float delta=leGpx->gpx_dalle.z_max_ses_triangles-leGpx->gpx_dalle.z_min_ses_triangles;
       glBegin(GL_TRIANGLES);
@@ -37,25 +41,50 @@ void SimpleViewer::draw()
                 ratio=(leGpx->gpx_dalle.sesTriangles[i].z_moy/delta)-(leGpx->gpx_dalle.z_max_ses_triangles/delta)+1;
 
 
-                    glColor3f(ratio,ratio,ratio); //blue color
+                    //glColor3f(ratio,ratio,ratio); //blue color
 
-               glVertex3f(leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet1)-1].getX(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet1)-1].getY(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet1)-1].getZ());
+               glTexCoord2d(0,0);  glVertex3f(leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet1)-1].getX(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet1)-1].getY(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet1)-1].getZ());
 
-               glVertex3f(leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet2)-1].getX(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet2)-1].getY(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet2)-1].getZ());
-               glVertex3f(leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet3)-1].getX(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet3)-1].getY(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet3)-1].getZ());
+               glTexCoord2d(1,0);  glVertex3f(leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet2)-1].getX(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet2)-1].getY(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet2)-1].getZ());
+               glTexCoord2d(1,1);  glVertex3f(leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet3)-1].getX(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet3)-1].getY(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet3)-1].getZ());
 
 
             }
 
       glEnd();
+     /* this->camera()->setPosition(gentilhomme->pos_);
+
+            this->camera()->setOrientation(0,-3.141592/2);
+            this->camera()->lookAt(gentilhomme->nextSommet_);
+              glBegin(GL_POINTS);
+
+                gentilhomme->draw();
+            glEnd();*/
+
+
+
     }
 
 }
+void SimpleViewer::animate()
+{
+ if(leGpx!=NULL) gentilhomme->bouge();
+}
 
+void SimpleViewer::loadTexture()
+{
+    QImage myGround("/home/gtsi/DDDgpx/ground_light",".jpg");
+    textureSol=new QOpenGLTexture(myGround,QOpenGLTexture::DontGenerateMipMaps);
+
+
+}
 void SimpleViewer::init()
 {
   // Restore previous viewer state.
   restoreStateFromFile();
+  help();
+  loadTexture();
+  startAnimation();
 
 }
 
@@ -69,5 +98,6 @@ SimpleViewer::~SimpleViewer()
 {
     delete leMnt;
     delete leGpx;
+    delete gentilhomme;
 }
 
