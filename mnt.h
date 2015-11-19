@@ -24,9 +24,12 @@ public:
     float pasX;
     float pasY;
 
+
     int nC;
     int nL;
-    Dalle laDalle;
+    bool isDisplayed=false;
+    float z_max_ses_triangles;
+    float z_min_ses_triangles;
 
 
 

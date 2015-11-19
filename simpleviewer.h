@@ -16,6 +16,8 @@ protected :
   virtual void init();
   virtual QString helpString() const;
    void animate();
+
+    void keyPressEvent(QKeyEvent *e);
 public :
 
     SimpleViewer();
@@ -28,6 +30,7 @@ public :
     bool mntDisplayed=false;
     void loadTexture();
     void afficheTriangleCouleur();
+    void afficheMNT();
     void afficheQuadsTexture();
     void updateView();
 

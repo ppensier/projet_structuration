@@ -5,6 +5,8 @@
 #include <QCheckBox>
 #include <glwidget.h>
 #include <mnt.h>
+#include <QMessageBox>
+#include <QDebug>
 namespace Ui {
 class MainWindow;
 }
@@ -22,22 +24,16 @@ public:
 
     /*****Les méthodes******/
 
-
-
-
 signals:
-     void clicked();
+    void clicked();
 
 
 private slots:
-     void on_Action_ouvrirMNT_triggered();
-     void on_actionOuvrir_GPX_triggered();
-    // void on_action_checkedMNT_triggered();
-
-     void on_play_clicked();
-
-
-     void on_horizontalSlider_valueChanged(int value);
+    void on_Action_ouvrirMNT_triggered();
+    void on_actionOuvrir_GPX_triggered();
+    void on_play_clicked();
+    void on_cbGPX_stateChanged(int arg1);
+    void on_cbMNT_stateChanged(int arg1);
 
 private:
     Ui::MainWindow *ui;

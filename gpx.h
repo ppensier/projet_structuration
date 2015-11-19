@@ -29,6 +29,7 @@ public:
     float maxlon;
     float minZ;
     float maxZ;
+    bool isDisplayed=false;
     vector<Point> trajectoire;
 
     Dalle gpx_dalle;

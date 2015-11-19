@@ -12,7 +12,7 @@ public:
     void bouge();
     std::vector<Point> randonnee;
      qglviewer::Vec nextSommet_, pos_;
-     double saVitesse;
+     float saVitesse;
 
 
    private :

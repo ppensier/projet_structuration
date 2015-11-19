@@ -23,14 +23,15 @@ void Randonneur::bouge()
             //std::cout<<"***iteration "<<i<<" : "<<pos_.x<<","<<pos_.y<<","<<pos_.z<<std::endl;
         }
 
-}
+    }
 }
 
 void Randonneur::draw()
 {
-  glColor3f(1, 0,0);
+    glColor3f(1, 0,0);
+    glPointSize(10.0);
 
-  glVertex3fv(pos_);
+    glVertex3fv(pos_);
 }
 
 
@@ -43,40 +44,40 @@ void Randonneur::init()
             pos_.x = randonnee[i].x;
             pos_.y = randonnee[i].y;
             pos_.z = randonnee[i].z;
-           // std::cout<<"iteration "<<i<<" :" <<pos_.x<<","<<pos_.y<<","<<pos_.z<<std::endl;
+            // std::cout<<"iteration "<<i<<" :" <<pos_.x<<","<<pos_.y<<","<<pos_.z<<std::endl;
 
         }
 
-    if(i<randonnee.size()-1)
-    {
-        float vitesse=0.3;
-        float normX=randonnee[i+1].x-pos_.x;
-        float normY=randonnee[i+1].y-pos_.y;
-        float normZ=randonnee[i+1].z-pos_.z;
+        if(i<randonnee.size()-1)
+        {
+            float vitesse=0.3;
+            float normX=randonnee[i+1].x-pos_.x;
+            float normY=randonnee[i+1].y-pos_.y;
+            float normZ=randonnee[i+1].z-pos_.z;
 
-        nextSommet_.x=randonnee[i+1].x;
-         nextSommet_.y=randonnee[i+1].y;
-          nextSommet_.z=randonnee[i+1].z;
+            nextSommet_.x=randonnee[i+1].x;
+            nextSommet_.y=randonnee[i+1].y;
+            nextSommet_.z=randonnee[i+1].z;
 
 
-         if(normX==0)
-            pasX=0;
-         else
-            pasX=(randonnee[i+1].x-pos_.x)*saVitesse;
+            if(normX==0)
+                pasX=0;
+            else
+                pasX=(randonnee[i+1].x-pos_.x)*saVitesse;
 
-         if(normY==0)
-            pasY=0;
-         else
-            pasY=(randonnee[i+1].y-pos_.y)*saVitesse;
-         if(normZ==0)
-            pasZ=0;
-         else
-            pasZ=(randonnee[i+1].z-pos_.z)*saVitesse;
+            if(normY==0)
+                pasY=0;
+            else
+                pasY=(randonnee[i+1].y-pos_.y)*saVitesse;
+            if(normZ==0)
+                pasZ=0;
+            else
+                pasZ=(randonnee[i+1].z-pos_.z)*saVitesse;
+        }
+
     }
 
-    }
-
- i++;
+    i++;
 
 
 
