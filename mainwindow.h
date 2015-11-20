@@ -21,6 +21,7 @@ public:
     ~MainWindow();
     QCheckBox *cbMNT ;
     QCheckBox *cbGPX ;
+    QCheckBox *cbTexture;
 
     /*****Les méthodes******/
 
@@ -34,6 +35,7 @@ private slots:
     void on_play_clicked();
     void on_cbGPX_stateChanged(int arg1);
     void on_cbMNT_stateChanged(int arg1);
+    void on_cbTexture_stateChanged(int arg1);
 
 private:
     Ui::MainWindow *ui;

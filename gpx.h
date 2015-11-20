@@ -30,6 +30,7 @@ public:
     float minZ;
     float maxZ;
     bool isDisplayed=false;
+    bool textureActivated=false;
     vector<Point> trajectoire;
 
     Dalle gpx_dalle;

@@ -10,7 +10,8 @@ Randonneur::Randonneur()
 
 void Randonneur::bouge()
 {
-
+    if(!randonnee.empty())
+    {
     if(i<randonnee.size())
     {    //float dist_to_sommet_x=
         if(i==0 || (fabs(pos_.x-randonnee[i].x)<=fabs(pasX)   && fabs(pos_.y-randonnee[i].y)<=fabs(pasY) ))
@@ -20,15 +21,16 @@ void Randonneur::bouge()
             pos_.x=pos_.x+pasX;
             pos_.y=pos_.y+pasY;
             pos_.z=pos_.z+pasZ;
-            //std::cout<<"***iteration "<<i<<" : "<<pos_.x<<","<<pos_.y<<","<<pos_.z<<std::endl;
+            std::cout<<"***iteration "<<i<<" : "<<pos_.x<<","<<pos_.y<<","<<pos_.z<<std::endl;
         }
 
+    }
     }
 }
 
 void Randonneur::draw()
 {
-    glColor3f(1, 0,0);
+   // glColor3f(0, 0,1);
     glPointSize(10.0);
 
     glVertex3fv(pos_);

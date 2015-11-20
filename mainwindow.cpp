@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     cbMNT=NULL;
     cbGPX=NULL;
+    cbTexture=NULL;
 
 }
 
@@ -58,12 +59,17 @@ void MainWindow::on_actionOuvrir_GPX_triggered()
 
     cbGPX->move(10,120);
     cbGPX->show();
+    cbTexture=new QCheckBox("Texture",this);
+    cbTexture->move(10,140);
+    cbTexture->show();
+
     //récupération des coordonnées des points à partir du fichier chargé
     //ui->widgetZoneVisu->loadMnt();
 QObject::connect(cbGPX, SIGNAL(stateChanged(int)),  this, SLOT(on_cbGPX_stateChanged(int)));
+QObject::connect(cbTexture, SIGNAL(stateChanged(int)),  this, SLOT(on_cbTexture_stateChanged(int)));
 
     //bounds de GPX : voir Romain...
-    Point BoundsMin;
+ /*     Point BoundsMin;
     BoundsMin.x=0.1;
 
     BoundsMin.y=-0.75;
@@ -71,10 +77,10 @@ QObject::connect(cbGPX, SIGNAL(stateChanged(int)),  this, SLOT(on_cbGPX_stateCha
     Point BoundsMax;
     BoundsMax.x= 0.9;
 
-    BoundsMax.y= -0.1;
+    BoundsMax.y= -0.1;*/
 
 
-    /*  Point BoundsMin;
+    Point BoundsMin;
         BoundsMin.x=900111;
 
         BoundsMin.y=1900026;
@@ -82,7 +88,7 @@ QObject::connect(cbGPX, SIGNAL(stateChanged(int)),  this, SLOT(on_cbGPX_stateCha
         Point BoundsMax;
         BoundsMax.x= 900511;
 
-        BoundsMax.y= 1900126;*/
+        BoundsMax.y= 1900126;
 
 
     ui->widgetZoneVisu->leGpx=new gpx();
@@ -108,6 +114,7 @@ MainWindow::~MainWindow()
     delete cbMNT;
     delete cbGPX;
     delete ui;
+    delete cbTexture;
 
 }
 
@@ -141,7 +148,8 @@ void MainWindow::on_play_clicked()
     float valeur=ui->horizontalSlider->value();
     ui->widgetZoneVisu->gentilhomme->saVitesse= valeur/10;
     ui->widgetZoneVisu->updateView(ui->widgetZoneVisu->leGpx);
-    ui->widgetZoneVisu->startAnimation();
+    ui->widgetZoneVisu->animation_allowded=true;
+   // ui->widgetZoneVisu->startAnimation();
 
 
 }
@@ -158,6 +166,15 @@ void MainWindow::on_cbMNT_stateChanged(int arg1)
         ui->widgetZoneVisu->leMnt->isDisplayed=true;
     else
          ui->widgetZoneVisu->leMnt->isDisplayed=false;
+    ui->widgetZoneVisu->updateView( ui->widgetZoneVisu->gpx_dalle_mnt);
+}
+void MainWindow::on_cbTexture_stateChanged(int arg1)
+{
+    if(arg1==2) //checked
+        ui->widgetZoneVisu->leGpx->textureActivated=true;
+    else
+        ui->widgetZoneVisu->leGpx->textureActivated=false;
+
     ui->widgetZoneVisu->updateView( ui->widgetZoneVisu->gpx_dalle_mnt);
 }
 void MainWindow::on_cbGPX_stateChanged(int arg1)

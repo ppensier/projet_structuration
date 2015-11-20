@@ -14,26 +14,43 @@ SimpleViewer::SimpleViewer(QWidget *parent)
 void SimpleViewer::draw()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-   //setBackgroundColor(QColor(0,1,0,100));
+    if(q_pressed)
+
+    {
+        this->camera()->setPosition(gentilhomme->pos_+qglviewer::Vec(0,0,0.5));
+
+        this->camera()->setOrientation(0,-3.141592/2);
+        this->camera()->lookAt(gentilhomme->nextSommet_+qglviewer::Vec(0,0,0));
+    }
+    //setBackgroundColor(QColor(0,1,0,100));
     if( leGpx!=NULL)
     {
         glPointSize(10.0);
         if(leGpx->isDisplayed)
         {
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             afficheTriangleCouleur(leGpx);
-           // afficheQuadsTexture(leGpx);
 
-            if(gentilhomme!=NULL)
-            {
-                glBegin(GL_POINTS);
-                gentilhomme->draw();
-                glEnd();
-
-            }
         }
+        else
+
+            if(leGpx->textureActivated)
+            {
+                glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+                afficheQuadsTexture(leGpx);
+            }
+
+        if(gentilhomme!=NULL)
+        {
+            glBegin(GL_POINTS);
+            gentilhomme->draw();
+            glEnd();
+
+        }
+
     }
-     if(leMnt!=NULL )
-     {
+    if(leMnt!=NULL )
+    {
         if(leMnt->isDisplayed )
         {
 
@@ -54,7 +71,7 @@ void SimpleViewer::draw()
             updateView(gpx_dalle_mnt);
 
         }
-     }
+    }
 
 
 }
@@ -63,7 +80,7 @@ void SimpleViewer::afficheTriangleCouleur( gpx *leGpx)
     float ratio;
     float delta=leGpx->gpx_dalle.z_max_ses_triangles-leGpx->gpx_dalle.z_min_ses_triangles;
 
-    /*glBegin(GL_TRIANGLES);
+    glBegin(GL_TRIANGLES);
     for(int i=0; i<leGpx->gpx_dalle.sesTriangles.size();i++)
     {
         ratio=(leGpx->gpx_dalle.sesTriangles[i].z_moy/delta)-(leGpx->gpx_dalle.z_max_ses_triangles/delta)+1;
@@ -81,68 +98,9 @@ void SimpleViewer::afficheTriangleCouleur( gpx *leGpx)
 
     }
     glEnd();
-    */
-    std::vector <qglviewer::Vec> tab_triangles;
-    std::vector <qglviewer::Vec> tab_quads_color;
-    for(int i=0; i<leGpx->gpx_dalle.sesTriangles.size();i++)
-    {
-
-              tab_triangles.push_back(qglviewer::Vec(leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet1)-1].getX(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet1)-1].getY(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet1)-1].getZ()));
-              tab_triangles.push_back(qglviewer::Vec(leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet2)-1].getX(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet2)-1].getY(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet2)-1].getZ()));
-
-              tab_triangles.push_back(qglviewer::Vec(leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet3)-1].getX(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet3)-1].getY(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet3)-1].getZ()));
-              ratio=(leGpx->gpx_dalle.sesTriangles[i].z_moy/delta)-(leGpx->gpx_dalle.z_max_ses_triangles/delta)+1;
-              tab_quads_color.push_back(qglviewer::Vec(ratio,ratio,ratio));
-              /*tab_quads_color.push_back(qglviewer::Vec(ratio,ratio,ratio));
-
-              tab_quads_color.push_back(qglviewer::Vec(ratio,ratio,ratio));
-*/
-
-    }
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glEnableClientState(GL_COLOR_ARRAY);
 
 
 
-    glVertexPointer(3, GL_FLOAT, 0, tab_triangles.data());
-    glColorPointer(3,GL_FLOAT,3,tab_quads_color.data());
-
-    //glTexCoordPointer(2,GL_FLOAT,0,tab_quads_color.data());
-
-    glDrawArrays(GL_TRIANGLES, 0, tab_triangles.size());
-
-
-    glDisableClientState(GL_COLOR_ARRAY);
-    glDisableClientState(GL_VERTEX_ARRAY);
-    cout << "dessin" << endl;
-
-
-
-
-}
-void SimpleViewer::afficheMNT()
-{
-    float ratio;
-    float delta=leMnt->z_max_ses_triangles-leMnt->z_min_ses_triangles;
-
-
-     glBegin(GL_TRIANGLES);
-    for(int i=0; i<leGpx->gpx_dalle.sesTriangles.size();i++)
-    {
-        ratio=(leMnt->lesTriangles[i].z_moy/delta)-(leMnt->z_max_ses_triangles/delta)+1;
-
-
-        glColor3f(ratio,ratio,ratio); //blue color
-
-
-        glVertex3f(leMnt->lesPoints[(leMnt->lesTriangles[i].id_Sommet1)-1].getX(),leMnt->lesPoints[(leMnt->lesTriangles[i].id_Sommet1)-1].getY(),leMnt->lesPoints[(leMnt->lesTriangles[i].id_Sommet1)-1].getZ());
-
-        glVertex3f(leMnt->lesPoints[(leMnt->lesTriangles[i].id_Sommet2)-1].getX(),leMnt->lesPoints[(leMnt->lesTriangles[i].id_Sommet2)-1].getY(),leMnt->lesPoints[(leMnt->lesTriangles[i].id_Sommet2)-1].getZ());
-
-        glVertex3f(leMnt->lesPoints[(leMnt->lesTriangles[i].id_Sommet3)-1].getX(),leMnt->lesPoints[(leMnt->lesTriangles[i].id_Sommet3)-1].getY(),leMnt->lesPoints[(leMnt->lesTriangles[i].id_Sommet3)-1].getZ());
-
-    }
-    glEnd();
 
 }
 void SimpleViewer::afficheQuadsTexture(gpx *leGpx)
@@ -157,9 +115,9 @@ void SimpleViewer::afficheQuadsTexture(gpx *leGpx)
         {
             glBegin(GL_QUADS);
 
-            glTexCoord2d(0,1);  glVertex3f(leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet1)-1].getX(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet1)-1].getY(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet1)-1].getZ());
-            glTexCoord2d(1,1);  glVertex3f(leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet2)-1].getX(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet2)-1].getY(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet2)-1].getZ());
-            glTexCoord2d(1,0);  glVertex3f(leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i+1].id_Sommet3)-1].getX(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i+1].id_Sommet3)-1].getY(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i+1].id_Sommet3)-1].getZ());
+            glTexCoord2d(0,100);  glVertex3f(leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet1)-1].getX(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet1)-1].getY(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet1)-1].getZ());
+            glTexCoord2d(100,100);  glVertex3f(leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet2)-1].getX(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet2)-1].getY(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet2)-1].getZ());
+            glTexCoord2d(100,0);  glVertex3f(leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i+1].id_Sommet3)-1].getX(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i+1].id_Sommet3)-1].getY(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i+1].id_Sommet3)-1].getZ());
             glTexCoord2d(0,0);  glVertex3f(leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet3)-1].getX(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet3)-1].getY(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet3)-1].getZ());
 
             glEnd();
@@ -167,8 +125,6 @@ void SimpleViewer::afficheQuadsTexture(gpx *leGpx)
             cout<<"sommet2 "<<leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet2)-1].getX()<<","<<leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet2)-1].getY()<<" , "<<leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet2)-1].getZ()<<endl;
             cout<<"sommet3 "<<leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i+1].id_Sommet3)-1].getX()<<","<<leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i+1].id_Sommet3)-1].getY()<<" , "<<leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i+1].id_Sommet3)-1].getZ()<<endl;
             cout<<"sommet4 "<<leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet3)-1].getX()<<","<<leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet3)-1].getY()<<" , "<<leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet3)-1].getZ()<<endl;
-
-
 
         }
 
@@ -178,60 +134,15 @@ void SimpleViewer::afficheQuadsTexture(gpx *leGpx)
 
 
 
-    /******methode 2****
-    std::vector <qglviewer::Vec> tab_quads;
-    for(int i=0; i<leGpx->gpx_dalle.sesTriangles.size();i++)
-    {
-
-        if(i%2==0 )
-        {
-
-
-              tab_quads.push_back(qglviewer::Vec(leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet1)-1].getX(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet1)-1].getY(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet1)-1].getZ()));
-              tab_quads.push_back(qglviewer::Vec(leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet2)-1].getX(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet2)-1].getY(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet2)-1].getZ()));
-              tab_quads.push_back(qglviewer::Vec(leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i+1].id_Sommet3)-1].getX(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i+1].id_Sommet3)-1].getY(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i+1].id_Sommet3)-1].getZ()));
-              tab_quads.push_back(qglviewer::Vec(leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet3)-1].getX(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet3)-1].getY(),leMnt->lesPoints[(leGpx->gpx_dalle.sesTriangles[i].id_Sommet3)-1].getZ()));
-
-
-        }
-
-    }
-    std::vector <qglviewer::Vec> tab_quads_texture;
-    for (int i=0;i<(leGpx->gpx_dalle.sesTriangles.size())/2;i++)
-         {
-             tab_quads_texture.push_back(qglviewer::Vec(0,1,0));
-             tab_quads_texture.push_back(qglviewer::Vec(1,1,0));
-             tab_quads_texture.push_back(qglviewer::Vec(1,0,0));
-             tab_quads_texture.push_back(qglviewer::Vec(0,0,0));
-
-         }
-
-
-        glEnableClientState(GL_VERTEX_ARRAY);
-        glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-
-        glBindTexture( GL_TEXTURE_2D, textureSol->textureId());
-
-        glVertexPointer(3, GL_FLOAT, 0, tab_quads.data());
-        glTexCoordPointer(2,GL_FLOAT,0,tab_quads_texture.data());
-
-        glDrawArrays(GL_QUADS, 0, tab_quads.size());
-
-
-        glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-        glDisableClientState(GL_VERTEX_ARRAY);
-        cout << "dessin" << endl;*/
-
-
 }
 void SimpleViewer::animate()
 {
-    if(leGpx!=NULL) gentilhomme->bouge();
+    if(leGpx!=NULL && animation_allowded) gentilhomme->bouge();
 }
 
 void SimpleViewer::loadTexture()
 {
-    QImage myGround("/home/gtsi/DDDgpx/terrain",".jpg");
+    QImage myGround("/home/gtsi/DDDgpx/herbe",".jpg");
     textureSol=new QOpenGLTexture(myGround,QOpenGLTexture::DontGenerateMipMaps);
 
 
@@ -243,6 +154,7 @@ void SimpleViewer::init()
     help();
     loadTexture();
     setAnimationPeriod(100);
+    startAnimation();
 
 
     //
@@ -287,18 +199,16 @@ void SimpleViewer::keyPressEvent(QKeyEvent *event)
 
     if(event->key()==Qt::Key_Q)
     {
-        if(gentilhomme!=NULL)
+        q_pressed=true;
 
-        {
-            this->camera()->setPosition(gentilhomme->pos_+qglviewer::Vec(0,0,1));
-
-            this->camera()->setOrientation(0,-3.141592/2);
-            this->camera()->lookAt(gentilhomme->nextSommet_+qglviewer::Vec(0,0,1));
-        }
 
     }
     if(event->key()==Qt::Key_S)
+    {
         updateView(leGpx);
+        q_pressed=false;
+
+    }
 
 }
 

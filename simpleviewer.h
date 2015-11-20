@@ -28,6 +28,8 @@ public :
     gpx *gpx_dalle_mnt =NULL;
     Randonneur *gentilhomme= NULL;
     QOpenGLTexture *textureSol;
+    bool animation_allowded=false;
+    bool q_pressed=false;
 
     void loadTexture();
     void afficheTriangleCouleur(gpx *leGpx);
