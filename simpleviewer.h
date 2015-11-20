@@ -25,14 +25,15 @@ public :
     SimpleViewer(QWidget *parent = 0);
     Mnt *leMnt = NULL;
     gpx *leGpx = NULL;
+    gpx *gpx_dalle_mnt =NULL;
     Randonneur *gentilhomme= NULL;
     QOpenGLTexture *textureSol;
-    bool mntDisplayed=false;
+
     void loadTexture();
-    void afficheTriangleCouleur();
+    void afficheTriangleCouleur(gpx *leGpx);
     void afficheMNT();
-    void afficheQuadsTexture();
-    void updateView();
+    void afficheQuadsTexture(gpx *leGpx);
+    void updateView(gpx *leGpx);
 
 
 };

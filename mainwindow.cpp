@@ -26,16 +26,20 @@ void MainWindow::on_Action_ouvrirMNT_triggered()
                                                     tr("Open MNT"), "/home/gtsi/DDDgpx/", tr("All files  (*.xyz)"));
     if(fileName=="") return;
 
-    cbMNT=new QCheckBox(fileName,this);
 
+    QRegExp rx("\/"); //RegEx for ' ' or ',' or '.' or ':' or '\t'
+    QStringList query = fileName.split(rx);
+    QString text=query.at(query.size()-1);
+    cbMNT=new QCheckBox(text,this);
     cbMNT->move(10,100);
     cbMNT->show();
-    //cbMNT->isCheckable()=false;
+
     ui->widgetZoneVisu->leMnt=new Mnt();
 
     ui->widgetZoneVisu->leMnt->loadMnt(fileName.toStdString());
-QObject::connect(cbMNT, SIGNAL(stateChanged(int)),  this, SLOT(on_cbMNT_stateChanged(int)));
+    QObject::connect(cbMNT, SIGNAL(stateChanged(int)),  this, SLOT(on_cbMNT_stateChanged(int)));
 
+    //cbMNT->setDisabled(true);
 }
 
 void MainWindow::on_actionOuvrir_GPX_triggered()
@@ -46,7 +50,11 @@ void MainWindow::on_actionOuvrir_GPX_triggered()
                                                     tr("Open MNT"), "/home/gtsi/DDDgpx/", tr("All files  (*.gpx)"));
     if(fileName=="") return;
 
-    cbGPX=new QCheckBox(fileName,this);
+    QRegExp rx("\/"); //RegEx for ' ' or ',' or '.' or ':' or '\t'
+    QStringList query = fileName.split(rx);
+    QString text=query.at(query.size()-1);
+
+    cbGPX=new QCheckBox(text,this);
 
     cbGPX->move(10,120);
     cbGPX->show();
@@ -89,7 +97,7 @@ QObject::connect(cbGPX, SIGNAL(stateChanged(int)),  this, SLOT(on_cbGPX_stateCha
 
     ui->widgetZoneVisu->leGpx->BuildTriangles(*(ui->widgetZoneVisu->leMnt));
 
-    ui->widgetZoneVisu->updateView();
+    ui->widgetZoneVisu->updateView( ui->widgetZoneVisu->leGpx);
 
 
 
@@ -132,7 +140,7 @@ void MainWindow::on_play_clicked()
     ui->widgetZoneVisu->gentilhomme->randonnee=ui->widgetZoneVisu->leGpx->trajectoire;
     float valeur=ui->horizontalSlider->value();
     ui->widgetZoneVisu->gentilhomme->saVitesse= valeur/10;
-    ui->widgetZoneVisu->updateView();
+    ui->widgetZoneVisu->updateView(ui->widgetZoneVisu->leGpx);
     ui->widgetZoneVisu->startAnimation();
 
 
@@ -150,7 +158,7 @@ void MainWindow::on_cbMNT_stateChanged(int arg1)
         ui->widgetZoneVisu->leMnt->isDisplayed=true;
     else
          ui->widgetZoneVisu->leMnt->isDisplayed=false;
-    ui->widgetZoneVisu->updateView();
+    ui->widgetZoneVisu->updateView( ui->widgetZoneVisu->gpx_dalle_mnt);
 }
 void MainWindow::on_cbGPX_stateChanged(int arg1)
 {
@@ -158,5 +166,5 @@ void MainWindow::on_cbGPX_stateChanged(int arg1)
         ui->widgetZoneVisu->leGpx->isDisplayed=true;
     else
          ui->widgetZoneVisu->leGpx->isDisplayed=false;
-     ui->widgetZoneVisu->updateView();
+     ui->widgetZoneVisu->updateView(ui->widgetZoneVisu->leGpx);
 }
