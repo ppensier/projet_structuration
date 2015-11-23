@@ -30,10 +30,11 @@ void Randonneur::bouge()
 
 void Randonneur::draw()
 {
-    //glColor3f(0, 0,1);
+    glColor3f(0, 0,1);
     glPointSize(10.0);
 
     glVertex3fv(pos_);
+    
 }
 
 

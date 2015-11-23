@@ -69,7 +69,7 @@ QObject::connect(cbGPX, SIGNAL(stateChanged(int)),  this, SLOT(on_cbGPX_stateCha
 QObject::connect(cbTexture, SIGNAL(stateChanged(int)),  this, SLOT(on_cbTexture_stateChanged(int)));
 
     //bounds de GPX : voir Romain...
- /*     Point BoundsMin;
+   /*    Point BoundsMin;
     BoundsMin.x=0.1;
 
     BoundsMin.y=-0.75;
@@ -77,10 +77,10 @@ QObject::connect(cbTexture, SIGNAL(stateChanged(int)),  this, SLOT(on_cbTexture_
     Point BoundsMax;
     BoundsMax.x= 0.9;
 
-    BoundsMax.y= -0.1;*/
+    BoundsMax.y= -0.1;;*/
 
 
-    Point BoundsMin;
+   Point BoundsMin;
         BoundsMin.x=900111;
 
         BoundsMin.y=1900026;
