@@ -6,4 +6,4 @@ pandoc -N \
        --variable papersize=a4paper \
        --variable version=0.2.0 \
        --template=template.tex \
-        Rapport-Structuration.md -o rapport.pdf
+        Rapport-Structuration.md -o rapport.tex

@@ -88,9 +88,9 @@ Les principales utilisations du réseau sont présentées à l'aide des fiches s
 ### Titre : Interrompre la fourniture.
 *Résumé* : Ce cas d'utilisation, permet à GrDF de couper le gaz pour les clients qui n'ont pas payé leurs consommations suite à la demande de leurs fournisseurs.
 
-*Acteurs* : GrDF, fournisseur et client.
- 
-*Description des scénario* :
+*Acteurs* : 
+
+GrDF, fournisseur et client.
 
 *Préconditions* :
 
@@ -135,44 +135,6 @@ Les principales utilisations du réseau sont présentées à l'aide des fiches s
 17. si le client est absent, l'opérateur ferme le robinet du compteur.
 
 18. GrDF facture le déplacement au fournisseur.
-
-
-###Titre : Transporter le Gaz.
-*Résumé* : Ce cas d'utilisation à GrDF de distribuer le gaz aux clients.
-
-*Acteur* : GrDF.
-
-*Description des scénario* :
-
-*Préconditions* :
-
-1. il y a du  gaz dans le réseau.
-
-2. il y a des clients.
-
-*scénario nominal* :
-
-1. le gaz est dans le réseau.
-
-2.si le gaz est liquide, il est gazéifié.
-
-3. le gaz est comprimé
-
-4. le mercaptan est injecté dans le gaz pour lui donner une odeur à la frontière.
-
-5.le gaz est de nouveau comprimer afin  qu'il puisse avancer dans les canalisations.
-
-6. soit il est détendu en  MPC.
-
-7. soit il est détendu en  MPB.
-
-8.s'il a été détendu en MPC, il est de nouveau détendu en MPB.
-
-9. soit il est détendu pour alimenter un poster client (souvent industriel ou commercial).
-
-10.soit il est détendu afin d'alimenter un consommateur classique.
-
-11.soit il est détendu en basse pression pour alimenter un client classique (réseau en fonte ductile, remplacement à venir).
 
 ### Titre : Assurer la sécurité.
 *Résumé* : 
@@ -237,7 +199,45 @@ Nous venons donc de décrire l'utilisation que nos acteurs, dans le champ que l'
 
 Le gaz distribué par GrDF est un gaz dit naturel : il provient des réserves souterraines ou sous-marines. Ces réserves de gaz sont le résultat de la décomposition d'êtres vivants au cours du temps. Cette décomposition passe par un phase de méthanisation. C'est à ce moment que le gaz naturel se forme, sa composition chimique est CH4 (méthane). Le gaz naturel est à opposer à ce que l'on appelait auparavant le gaz de ville qui était produit par extraction du méthane contenu dans le charbon. Cette activité est maintenant terminée. 
 
-****à faire****
+###Titre : Transporter le Gaz.
+
+****mettre le diag***
+
+*Résumé* : Ce cas d'utilisation à GrDF de distribuer le gaz aux clients.
+
+*Acteur* : GrDF.
+
+*Description des scénario* :
+
+*Préconditions* :
+
+1. il y a du  gaz dans le réseau.
+
+2. il y a des clients.
+
+*scénario nominal* :
+
+1. le gaz est dans le réseau.
+
+2.si le gaz est liquide, il est gazéifié.
+
+3. le gaz est comprimé
+
+4. le mercaptan est injecté dans le gaz pour lui donner une odeur à la frontière.
+
+5.le gaz est de nouveau comprimer afin  qu'il puisse avancer dans les canalisations.
+
+6. soit il est détendu en  MPC.
+
+7. soit il est détendu en  MPB.
+
+8.s'il a été détendu en MPC, il est de nouveau détendu en MPB.
+
+9. soit il est détendu pour alimenter un poster client (souvent industriel ou commercial).
+
+10.soit il est détendu afin d'alimenter un consommateur classique.
+
+11.soit il est détendu en basse pression pour alimenter un client classique (réseau en fonte ductile, remplacement à venir).
 
 Suite au transport du gaz depuis les carrière naturel vient donc le consommateur, auquel GrDF ne facture rien directement mais avec qui il a tout de même certains liens.
 
