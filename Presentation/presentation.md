@@ -23,12 +23,12 @@ Ce projet .
 ## 3- Le transport et la Sécurité
 ### 3-1 Le transport
 diagramme d'activité partie 1
-![exemple d'une carte de réseau de gaz](image Gimp/carte gaz.jpg)
+![exemple d'une carte de réseau de gaz](image Gimp/activite1.png)
 
 ## 3- Le transport et la Sécurité
 ### 3-1 Le transport
 diagramme d'activité partie
-![exemple d'une carte de réseau de gaz](image Gimp/carte gaz.jpg)
+![exemple d'une carte de réseau de gaz](image Gimp/activite2.png)
 
 ## 3- Le transport et la Sécurité
 ### 3-2 La sécurité
@@ -45,7 +45,7 @@ diagramme d'activité partie
 ## 4- La relation avec le Client
 ### 4-1 Les rélves de données de consommations
 diagramme gazpar
-![exemple d'une carte de réseau de gaz](image Gimp/carte gaz.jpg)
+
 
 ## 5- le diagramme de classe
 ![diagramme de classe suite](image Gimp/classe1.png)
