@@ -1,1 +1,1 @@
-pandoc --slide-level 2 -i -t beamer -V theme:Darmstadt -s presentation.md -o presentation.pdf" 
+pandoc --slide-level 2 -i -t beamer -V theme:Darmstadt -s presentation.md -o presentation.pdf

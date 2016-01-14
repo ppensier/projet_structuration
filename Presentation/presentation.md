@@ -19,25 +19,24 @@ Ce projet . -->
 - environ 11000 employés.
 
 ## 2- Présentation de notre projet
-![Diagramme de cas d'utilisation](image Gimp/useCase.png)
+![Diagramme de cas d'utilisation](image Gimp/usecase.png)
 
 <!-- présenter Grdf en citant ses principales missions 
 <!-- Ajouter le use case à cet endroit: qu'est ce que l'on veut modéliser?-->
 
 ## 2- Présentation du réseau de distribution de Grdf
 
-![exemple d'une carte de réseau de gaz](image Gimp/cartegaz.png =100x20)
+![exemple d'une carte de réseau de gaz](image Gimp/cartegaz.png)
 
 <!--## 3- Le transport et la Sécurité
 ### 3-1 Le transport-->
-## 3- Le transport du gaz
-La partie transport:
+## 3- Le transport du gaz : La partie transport
 
-![exemple d'une carte de réseau de gaz](image Gimp/activitep1.png)
+![Diagramme d'activité partie transport](image Gimp/activitep1.png)
 
-## 3- Le transport du gaz
-La partie distribution:
-![exemple d'une carte de réseau de gaz](image Gimp/activitep2.png)
+## 3- Le transport du gaz : La partie distribution
+
+![Diagramme d'activité partie distribution](image Gimp/activitep2.png)
 
 ## 4- La sécurité du réseau
 ### 4-1 Un enjeux essentiel pour Grdf:
@@ -98,4 +97,4 @@ La partie distribution:
 ![diagramme de classe suite](image Gimp/classe2.png)
 
 
-# Merci de votre attention
+## Merci de votre attention
