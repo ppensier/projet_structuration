@@ -400,7 +400,7 @@ on se situe à l’heure de relève automatique quotidienne de la consommation d
 
 Comme les travaux de raccordement s’arrêtent au niveau du coffret de comptage du particulier, un installateur viendra par la suite sur place pour relier la maison et mettre en place les équipements intérieurs (pose de la canalisation reliant le coffret de comptage à la maison, mise en route des appareils de chauffage…).
 
-![Diagramme de séquence de la collecte des données](../Diagramme/sequencegazpar.jpg)
+![Diagramme de séquence de la collecte des données](../Diagramme/Sequence_test.jpg)
 
 
 Comme illustré sur le diagramme de séquence représentant la collecte des données de consommation, ces informations doivent être mises à disposition du client quotidiennement et doivent également être mise à disposition du fournisseur.
