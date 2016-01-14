@@ -71,63 +71,6 @@ Les principaux cas d'utilisation du réseau etl es acteurs du projet sont prése
 ![Diagramme de cas d'utilisation](../Diagramme/Diagrammedecasdutilisation.png)
 
 
-### Titre : Assurer la sécurité.
-*Résumé* : 
-
-Ce cas d'utilisation, permet à GrDF d'assuer la sécurité du réseau.
-
-*Acteurs* : 
-
-GrDF.
-
-*Description des scénario* :
-
-*Préconditions* :
-
-1.le réseau est mis en place. 
-
-2.déclenchement d'un alerte. 
-
-3.disponibilité des opérateurs dédiés à la maintenance et sécurité. 
-
-*Scénario nominal* :
-
-1. L'appelant repère un incident  et décide d'appeler.
-
-2. Si il appelle le Standard de GrDF, il y a un appel systématique au CTA-CDIS .
-
-3. L'opérateur qui a répondu à l' appel fait évaluer la situation selon la grille PGR.
-4. Sinon il appelle le standard CTA-CODIS, il y a aussi un appel systématique au standard de GrDF.
-5. L'opérateur du standard du CTA-CODIS évalue la situation selon la grille PGR.
-6. La situation est grave,  déclenchement de la procédure renforcée( voir scénario procédure renforcée).
-7. Si la situation est normale, GrDF envoie l'opérateur.
-8. L'opérateur fait l'évaluation sur terrain.
-9. Si l'évaluation est grave, déclenchement de la procédure renforcée.
-10. Si la situation est normale, il fait les réparations.
-11. CTA-CODIS envoie le COS .
-12. Le COS évalue la situation sur le terrrain.
-13. Si l'évaluation est grave,  déclenchement de la procédure renforcée.
-14. Sinon l'opérateur GrDF fait la réparation.
-
-*Scénario nominal* (Procédure Renforcée).
-
-1. COS prépare le plan d'intervention.
-
-2. COS demande l'intervention des autres services (police, mairie, smur…).
-
-3. COS demande à l'opérateur GrDF d'identifier la canalisation.
-
-4. l'opérateur GrDF interroge  Carpathe pour identifier la canalisation.
-
-5. Carpathe renvoie les données relatives à la canalisation.
-
-6. Si la canalisation est de basse pression, l'opérateur GrDF effectue les réparations.
-
-7. Si la canalisation est de moyenne pression, l'opérateur GrDF ferme les robinets.
-
-8. l'opérateur GrDF  dépressurise la canalisation.
-
-9.l'opérateur GrDF répare la canalisation.
 
 Nous venons donc de décrire l'utilisation que nos acteurs, dans le champ que l'on a délimité font du réseau de distribution.  Sans pour autant décrire chaque détail, nous allons expliquer comment le gaz est acheminé depuis l'endroit où il se situe naturellement jusqu'au consommateur.
 
@@ -470,6 +413,65 @@ Sur le réseau de GrDF, il y a certaines pièces mécaniques (robinet de gaz, pi
 En plus des pièces soumises à un usure mécanique naturelle, il est possible qu'il y ait des fuite ailleurs sur le réseau. Afin de détecter des éventuelles fuites sur le réseau, GrDF à mis en place des véhicules munis de capteurs permettant de connaître la composition de l'air et notamment la teneur en méthane, possible indicateur de fuite de gaz. Les données récoltées par ces véhicules, croisées avec l'incidentologie et le données contenues dans le SIG de GrDF permettent de mettre en évidence les zones à moderniser sur le réseau.
 
 Enfin, il est aussi possible que ce soit une tierce personne qui découvre une fuite. Dans ce dernier cas un standard est ouvert à GrDF afin de signaler l'incident. Le diagramme suivant décrit la séquence d'action lors d'un appel.
+
+
+### Titre : Assurer la sécurité.
+*Résumé* : 
+
+Ce cas d'utilisation, permet à GrDF d'assuer la sécurité du réseau.
+
+*Acteurs* : 
+
+GrDF.
+
+*Description des scénario* :
+
+*Préconditions* :
+
+1.le réseau est mis en place. 
+
+2.déclenchement d'un alerte. 
+
+3.disponibilité des opérateurs dédiés à la maintenance et sécurité. 
+
+*Scénario nominal* :
+
+1. L'appelant repère un incident  et décide d'appeler.
+
+2. Si il appelle le Standard de GrDF, il y a un appel systématique au CTA-CDIS .
+
+3. L'opérateur qui a répondu à l' appel fait évaluer la situation selon la grille PGR.
+4. Sinon il appelle le standard CTA-CODIS, il y a aussi un appel systématique au standard de GrDF.
+5. L'opérateur du standard du CTA-CODIS évalue la situation selon la grille PGR.
+6. La situation est grave,  déclenchement de la procédure renforcée( voir scénario procédure renforcée).
+7. Si la situation est normale, GrDF envoie l'opérateur.
+8. L'opérateur fait l'évaluation sur terrain.
+9. Si l'évaluation est grave, déclenchement de la procédure renforcée.
+10. Si la situation est normale, il fait les réparations.
+11. CTA-CODIS envoie le COS .
+12. Le COS évalue la situation sur le terrrain.
+13. Si l'évaluation est grave,  déclenchement de la procédure renforcée.
+14. Sinon l'opérateur GrDF fait la réparation.
+
+*Scénario nominal* (Procédure Renforcée).
+
+1. COS prépare le plan d'intervention.
+
+2. COS demande l'intervention des autres services (police, mairie, smur…).
+
+3. COS demande à l'opérateur GrDF d'identifier la canalisation.
+
+4. l'opérateur GrDF interroge  Carpathe pour identifier la canalisation.
+
+5. Carpathe renvoie les données relatives à la canalisation.
+
+6. Si la canalisation est de basse pression, l'opérateur GrDF effectue les réparations.
+
+7. Si la canalisation est de moyenne pression, l'opérateur GrDF ferme les robinets.
+
+8. l'opérateur GrDF  dépressurise la canalisation.
+
+9.l'opérateur GrDF répare la canalisation.
 
 ![Diagramme de séquence de mise en sécurité](../Diagramme/DS-Securite.jpg)
 
