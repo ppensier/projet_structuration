@@ -402,7 +402,7 @@ Comme les travaux de raccordement s’arrêtent au niveau du coffret de comptage
 
 ![Diagramme de séquence de la collecte des données](../Diagramme/Sequence_test.jpg)
 
-![Diagramme de séquence de la collecte des données](../Diagramme/Sequence_gazpar.jpg)
+![Diagramme de séquence de la collecte des données](../Diagramme/sequence_gazpar.jpg)
 
 Comme illustré sur le diagramme de séquence représentant la collecte des données de consommation, ces informations doivent être mises à disposition du client quotidiennement et doivent également être mise à disposition du fournisseur.
 
