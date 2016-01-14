@@ -4,9 +4,9 @@ Le présent rapport présente la structuration et la modélisation d'un système
 
 Plusieurs points du système de distribution de gaz seront abordés :
 
-* Le réseau en lui-même, comment-il organisé, géré, maintenu... ?
+* Le réseau en lui-même, comment est-il organisé, géré, maintenu... ?
 
-* La mise en sécurité, comment gérer les alertes pour problème sur le réseau ?
+* La mise en sécurité, comment gérer les alertes en cas de problème sur le réseau ?
 
 * Enfin, le système de comptage avec notamment le nouveau système de compteur communiquant Gazpar.
 
@@ -18,9 +18,9 @@ GrDF se sert du réseau pour acheminer le gaz qui appartient aux fournisseurs ve
 
 Le prix payé par unité d'énergie consommé est fixé par la commission de régulation de l'énergie (CRE). Ce système a été mis en place afin de garantir une concurrence loyale entre les fournisseurs.
 
-Pour autant, avant 2004, EDF-GDF assurait à la fois la distribution et le service clientèle. En 2004, EDF et GDF deviennent deux identité distinctes et à partir de 2007 GDF et GrDF sont séparés afin de donner libre concurrence aux différents fournisseurs. Aujourd'hui GrDF est une filiale d'ENGIE à 100 % et compte environ 11 000 employés. Le siège d'ENGIE se trouve à Courbevoie à La Défense.
+Pour autant, avant 2004, EDF-GDF assurait à la fois la distribution et le service clientèle. En 2004, EDF et GDF deviennent deux identités distinctes et à partir de 2007 GDF et GrDF sont séparés afin de donner libre concurrence aux différents fournisseurs. Aujourd'hui GrDF est une filiale d'ENGIE à 100 % et compte environ 11 000 employés. Le siège d'ENGIE se trouve à Courbevoie à La Défense.
 
-Le réseau est composé d'un appareillage complexe, le schéma suivant montre un exemple de porion de réseau où chaque type d'appareillage apparaît. Il montre ainsi comment cet appareillage s'organise.
+Le réseau est composé d'un appareillage complexe, le schéma suivant montre un exemple de potrion de réseau où chaque type d'appareillage apparaît. Il montre ainsi comment cet appareillage s'organise.
 
 ![Carte, exemple de réseau](../Diagramme/carte_gaz.jpg)
 
@@ -32,13 +32,13 @@ Il existe plusieurs types de canalisations :
 
 * Les canalisations en acier. Elles sont utilisées depuis 1931 et ont surtout été utilisées dans les années 70/80. Ces canalisations sont munies de systèmes de protection cathodique pour éviter leur corrosion. On a deux types de protection, d'une par la protection passive correspondant à l'enrobage de la canalisation dans une substance isolante, d'autre part on a des protections actives qui correspondent à la mise en place d'anodes sacrificielles qui vont drainer les courants vagabonds et corriger le potentiel électrolytique.
 
-* La canalisation en polyéthylène (PE). Elles se sont généralisées à partir des années 80. Ce sont en général des canalisations en moyenne pression B. Le succès de cette matière s'explique par la simplicité de mise en œuvre. En effet le PE permet l'utilisation de tubes de grandes longueurs et un raccordement des tubes par électrosoudage . Le PE est maintenant utilisés systématiquement pour l'installation de canalisations ayant une pression de moins de 10bars.
+* La canalisation en polyéthylène (PE). Elles se sont généralisées à partir des années 80. Ce sont en général des canalisations en moyenne pression B. Le succès de cette matière s'explique par la simplicité de mise en œuvre. En effet le PE permet l'utilisation de tubes de grandes longueurs et un raccordement des tubes par électrosoudage . Le PE est maintenant utilisé systématiquement pour l'installation de canalisations ayant une pression de moins de 10 bars.
 
 * Les canalisations en fonte ductile. Elles sont utilisées depuis la mise en place du réseau de gaz. Elle sont utilisées pour le réseaux basse pression (BP). Ce sont les réseaux qui irriguent les centres villes, ils sont l'héritage des réseaux manufacturés. Un arrêté du 13 juillet 2000 portant sur la sécurité des réseaux de gaz ne prévoit plus la mise en place de telles canalisations et les réseaux BP sont progressivement remplacés par des réseaux moyenne pression B (de 4 bars)
 
 Parmi l'appareillage du réseau on a :
 
-* Les postes de détente. Ils permettent le changement de pression. Il y en a de plusieurs type, d'abord on a les postes de livraison qui font le lien entre le réseau de transport de GRT Gaz et GrDF. On a ensuite les poste de détente de concession qui permettent le changement de pression pour permettre l'utilisation du gaz.
+* Les postes de détente. Ils permettent le changement de pression. Il y en a de plusieurs types, d'abord on a les postes de livraison qui font le lien entre le réseau de transport de GRT Gaz et GrDF. On a ensuite les postes de détente de concession qui permettent le changement de pression pour permettre l'utilisation du gaz.
 
 * Les robinets et vannes. Ils permettent d'arrêter la fourniture en cas d'incident.
 
@@ -48,9 +48,9 @@ Parmi l'appareillage du réseau on a :
 
 * Des cônes réducteur. Ils permettent la diminution du diamètre de la canalisation.
 
-* Des bouchons. Placés en bout de canalisation, il marque la fin du réseau.
+* Des bouchons. Placés en bout de canalisation, ils marquent la fin du réseau.
 
-* Des prises de potentiel. Elle permette la vérification du courant dans les tuyaux de composition métallique afin d'avoir une idée de leur corrosion.
+* Des prises de potentiel. Elles permettent la vérification du courant dans les tuyaux de composition métallique afin d'avoir une idée de leur corrosion.
 
 * Des raccords métal-plastique (RMP). Ils permettent de faire le lien entre des canalisation en EP et des canalisation en métal.
 
@@ -71,7 +71,7 @@ Le réseau, en plus des fournisseurs et de GrDF possèdent plusieurs acteurs. Le
 Les principales utilisations du réseau sont présentées à l'aide des fiches suivantes :
 
 ### Titre : Interrompre la fourniture.
-*Résumé* : Ce cas d'utilisation, permet à GrDF de couper le gaz pour les clients qui n'ont pas payé leurs consommations suite à la demande de leurs fournisseurs.
+*Résumé* : Ce cas d'utilisation, permet à GrDF de couper le gaz pour les clients qui n'ont pas payés leurs consommations suite à la demande de leurs fournisseurs.
 
 *Acteurs* : 
 
@@ -87,23 +87,23 @@ GrDF, fournisseur et client.
 
 1. si le contrat du client n'est pas soumis à une obligation de maintient de fourniture, le fournisseur demande un déplacement pour couper le gaz à GrDF.
 
-2.GrDF renvoie les informations pour la mission d'interruption.
+2. GrDF renvoie les informations pour la mission d'interruption.
 
 3. Si client paye sa facture entre temps , le fournisseur demande d'annuler la mission d'interruption à GrDF.
 
-4.si la demande  ne dépasse pas le délai, GrDF annule la mission.
+4. Si la demande  ne dépasse pas le délai, GrDF annule la mission.
 
-5. le fournisseur informe le client pour qu'il ait la possibilité sa facture à l'opérateur GrDF.
+5. Le fournisseur informe le client pour qu'il ait la possibilité sa facture à l'opérateur GrDF.
 
 6. GrDF envoie l'opérateur.
 
-7.si le fournisseur choisit l'option d'interruption ferme.
+7. Si le fournisseur choisit l'option d'interruption ferme.
 
-8.si le client prouve le paiement de sa facture, l'opérateur GrDF informe le fournisseur.
+8. Si le client prouve le paiement de sa facture, l'opérateur GrDF informe le fournisseur.
 
-9.si le client ne prouve pas le paiement.
+9. Si le client ne prouve pas le paiement.
 
-10. si l'opérateur est confronté à un cas de force majeur, il informe le fournisseur.
+10. Si l'opérateur est confronté à un cas de force majeur, il informe le fournisseur.
 
 11. sinon, l'opérateur ferme le robinet du compteur.
 
@@ -124,7 +124,8 @@ GrDF, fournisseur et client.
 ### Titre : Assurer la sécurité.
 *Résumé* : 
 
-Ce cas d'utilisation, permet à GrDF d 'assuer la sécurité du réseau .
+Ce cas d'utilisation, permet à GrDF d'assuer la sécurité du réseau.
+
 *Acteurs* : 
 
 GrDF.
@@ -147,7 +148,7 @@ GrDF.
 
 3. L'opérateur qui a répondu à l' appel fait évaluer la situation selon la grille PGR.
 4. Sinon il appelle le standard CTA-CODIS, il y a aussi un appel systématique au standard de GrDF.
-5. L'opérateur du standard du CTA-CODIS évalué la situation selon la grille PGR.
+5. L'opérateur du standard du CTA-CODIS évalue la situation selon la grille PGR.
 6. La situation est grave,  déclenchement de la procédure renforcée( voir scénario procédure renforcée).
 7. Si la situation est normale, GrDF envoie l'opérateur.
 8. L'opérateur fait l'évaluation sur terrain.
@@ -160,7 +161,7 @@ GrDF.
 
 *Scénario nominal* (Procédure Renforcée).
 
-1.COS prépare le plan d'intervention.
+1. COS prépare le plan d'intervention.
 
 2. COS demande l'intervention des autres services (police, mairie, smur…).
 
@@ -168,9 +169,9 @@ GrDF.
 
 4. l'opérateur GrDF interroge  Carpathe pour identifier la canalisation.
 
-5.Carpathe renvoie les données relatives à la canalisation.
+5. Carpathe renvoie les données relatives à la canalisation.
 
-6.Si la canalisation est de basse pression, l'opérateur GrDF effectue les réparations.
+6. Si la canalisation est de basse pression, l'opérateur GrDF effectue les réparations.
 
 7. Si la canalisation est de moyenne pression, l'opérateur GrDF ferme les robinets.
 
@@ -178,7 +179,7 @@ GrDF.
 
 9.l'opérateur GrDF répare la canalisation.
 
-Nous venons donc de décrire l'utilisation que nos acteurs, dans le champ que l'on a délimité font du réseau de distribution.  Sans pour autant décrire chaque détails, nous allons expliquer comment le gaz est acheminé depuis l'endroit où il se situe naturellement jusqu'au consommateur.
+Nous venons donc de décrire l'utilisation que nos acteurs, dans le champ que l'on a délimité font du réseau de distribution.  Sans pour autant décrire chaque détail, nous allons expliquer comment le gaz est acheminé depuis l'endroit où il se situe naturellement jusqu'au consommateur.
 
 ## Transport du gaz
 
@@ -204,23 +205,23 @@ Le gaz distribué par GrDF est un gaz dit naturel : il provient des réserves so
 
 1. le gaz est dans le réseau.
 
-2.si le gaz est liquide, il est gazéifié.
+2. si le gaz est liquide, il est gazéifié.
 
 3. le gaz est comprimé
 
 4. le mercaptan est injecté dans le gaz pour lui donner une odeur à la frontière.
 
-5.le gaz est de nouveau comprimer afin  qu'il puisse avancer dans les canalisations.
+5. le gaz est de nouveau comprimé afin  qu'il puisse avancer dans les canalisations.
 
 6. soit il est détendu en  MPC.
 
 7. soit il est détendu en  MPB.
 
-8.s'il a été détendu en MPC, il est de nouveau détendu en MPB.
+8. s'il a été détendu en MPC, il est de nouveau détendu en MPB.
 
 9. soit il est détendu pour alimenter un poster client (souvent industriel ou commercial).
 
-10.soit il est détendu afin d'alimenter un consommateur classique.
+10. soit il est détendu afin d'alimenter un consommateur classique.
 
 11.soit il est détendu en basse pression pour alimenter un client classique (réseau en fonte ductile, remplacement à venir).
 
@@ -297,10 +298,10 @@ Un nouveau client souhaite être raccordé au réseau de gaz.
 
 *Enchaînements alternatifs*
 
-A1 : le client s’adresse directement au fournisseur.
+A1 \: le client s’adresse directement au fournisseur.
 1. Le client souscrit un contrat de fourniture.
 2. Le fournisseur mandate le distributeur pour une demande de raccordement.
-A2 : la maison est située à plus de 35 mètres du réseau de gaz.
+A2 \: la maison est située à plus de 35 mètres du réseau de gaz.
 4. Le distributeur fixe un rendez-vous au client pour réaliser l’étude appropriée.
 5. Le client donne son accord à la demande de rendez-vous.
 6. Le distributeur réalise le devis personnalisé.
@@ -335,11 +336,11 @@ L'opérateur GrDF est donc envoyé chez le client. Une nouvelle fois deux cas so
 
 * Soit c'est une demande d'interruption optionnelle.
 
-Dans le cas d'une demande d'interruption ferme, soit le client prouve qu'il a bien payé sa facture à l'opérateur GrDF qui en informe alors le fournisseur, soit il ne peut pas prouver qu'il a payé,. Si l'opérateur est confronté à un cas de force majeur et en informe alors le fournisseur, soit il ferme simplement le compteur du robinet de gaz.
+Dans le cas d'une demande d'interruption ferme, soit le client prouve qu'il a bien payé sa facture à l'opérateur GrDF qui en informe alors le fournisseur, soit il ne peut pas prouver qu'il a payé. Si l'opérateur est confronté à un cas de force majeur et en informe alors le fournisseur, soit il ferme simplement le compteur du robinet de gaz.
 
 Dans le cas d'une demande d'interruption optionnelle, soit le client est présent et a alors la possibilité de payer sa facture à l'opérateur qui peut prendre cette opportunité ce qui conduit l'opérateur à en informer le fournisseur. Il est aussi possible qu'il ne soit pas en mesure de payer, son robinet du compteur de gaz est alors fermé par l'opérateur.
 
-En cas d'absence du client, son robinet est fermé par l'opérateur. Suite à cela, GrDF facture à l'intervention au fournisseur.
+En cas d'absence du client, son robinet est fermé par l'opérateur. Suite à cela, GrDF facture l'intervention au fournisseur.
 
 # Transmission des données et sécurité
 
