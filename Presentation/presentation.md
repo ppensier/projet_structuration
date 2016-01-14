@@ -13,12 +13,12 @@
 <!-- ## 1- Introduction
 Ce projet . -->
 
-## 2- Présentation de Grdf
+## 2- Introduction du sujet
 - une societé qui gère plus de 11 millions de clients.
 - une société qui gere plus de 200 000 km de canalisation sur tous le teritoire français.
 - environ 11000 employés.
 
-## 2- Présentation du projet
+## 2- Présentation de notre projet
 ![Diagramme de cas d'utilisation](image Gimp/useCase.png)
 
 <!-- présenter Grdf en citant ses principales missions 
@@ -30,11 +30,11 @@ Ce projet . -->
 <!--## 3- Le transport et la Sécurité
 ### 3-1 Le transport-->
 ## 3- Le transport du gaz
-La partie transport
+La partie transport:
 ![exemple d'une carte de réseau de gaz](image Gimp/activitep1.png)
 
 ## 3- Le transport du gaz
-La partie distribution
+La partie distribution:
 ![exemple d'une carte de réseau de gaz](image Gimp/activitep2.png)
 
 ## 4- La sécurité du réseau
@@ -61,20 +61,20 @@ La partie distribution
 ![Diagramme de séquence : procédure renforcéé](image Gimp/Ds_PR.jpg)
 
 ## 5- Collecte de données de consommation
-### 5-1 Le système alors utilisé
-Présentation du vieux système de comptage:
+### 5-1 Le système utilisé jusqu'ici
+<!--Présentation du vieux système de comptage:-->
 - nécessite une intervention de relevé tous les six mois
 - basé sur un système mécanique simple
 ![compteur mécanique](image Gimp/compteur.png)
 
 ## 5- Collecte de données de consommation
 ### 5-2 Le compteur communicant Gazpar
--2009: lancement du projet
--une solution simple, robuste et sécurisée:
+-2009\: lancement du projet
+-une solution simple, robuste et sécurisée
 ![chaîne communicante](../Diagramme/chainemodule.png)
 
 ## 5- Collecte de données de consommation
-### 5-2 Le système d'information associé
+### 5-3 Le système d'information associé
 ![système d'information](../Diagramme/sigazpar.png)
 
 ## 5- Collecte de données de consommation
@@ -90,4 +90,4 @@ diagramme2 sur Gapzar
 ![diagramme de classe suite](image Gimp/classe2.png)
 
 
-# Merci Pour votre attention
+# Merci de votre attention
