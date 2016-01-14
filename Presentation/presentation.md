@@ -3,58 +3,91 @@
 % Amiri Mohammed, Milville Romain et Pensier Philémon 
 
 ## Plan
-1- Introduction
-2- Présentation
-3- Intéraction avec le client
-4- l'aspect securité
-5- Conclusion
+- 1- Introduction du sujet
+- 2- Structure du réseau de distribution
+- 3- Le transport du gaz
+- 4- La sécurité du réseau
+- 5- Collecte des données de consommation
+- 6- Conclusion
 
-## 1- Introduction
-Ce projet . 
+<!-- ## 1- Introduction
+Ce projet . -->
 
-## 2- Présentation
-- Grdf societé de 11 million de client
-- Entreprise qui gere plus de 200 000 km de canalisation sur tous le teritoire français.
-- 11 milles de fonctionnaires.
+## 2- Présentation de Grdf
+- une societé qui gère plus de 11 millions de clients.
+- une société qui gere plus de 200 000 km de canalisation sur tous le teritoire français.
+- environ 11000 employés.
 
-## 2- Présentation
-![exemple d'une carte de réseau de gaz](image Gimp/carte gaz.jpg)
+## 2- Présentation du projet
+![Diagramme de cas d'utilisation](image Gimp/useCase.png)
 
-## 3- Le transport et la Sécurité
-### 3-1 Le transport
-diagramme d'activité partie 1
-![exemple d'une carte de réseau de gaz](image Gimp/activite1.png)
+<!-- présenter Grdf en citant ses principales missions 
+<!-- Ajouter le use case à cet endroit: qu'est ce que l'on veut modéliser?-->
 
-## 3- Le transport et la Sécurité
-### 3-1 Le transport
-diagramme d'activité partie
-![exemple d'une carte de réseau de gaz](image Gimp/activite2.png)
+## 2- Présentation du réseau de distribution de Grdf
+![exemple d'une carte de réseau de gaz](image Gimp/cartegaz.png =100x20)
 
-## 3- Le transport et la Sécurité
-### 3-2 La sécurité
-![Diagramme de séquence : procédure en cas d'alerte](image Gimp/sequence suite.png)
+<!--## 3- Le transport et la Sécurité
+### 3-1 Le transport-->
+## 3- Le transport du gaz
+La partie transport
+![exemple d'une carte de réseau de gaz](image Gimp/activitep1.png)
 
-## 3- Le transport et la Sécurité
-### 3-2 La sécurité
-![Diagramme de séquence : procédure en cas d'alerte suite](image Gimp/sequence suite1.png)
+## 3- Le transport du gaz
+La partie distribution
+![exemple d'une carte de réseau de gaz](image Gimp/activitep2.png)
 
-## 3- Le transport et la Sécurité
-### 3-2 La sécurité
+## 4- La sécurité du réseau
+### 4-1 Un enjeux essentiel pour Grdf:
+- 5000 accrochages/an
+- risques de fuites et d'explosion
+
+<!--## 3- Le transport et la Sécurité
+### 3-2 La sécurité-->
+## 4- La sécurité du réseau
+### 4-2 La procédure d'alerte
+![Diagramme de séquence : procédure en cas d'alerte](image Gimp/sec1.png)
+
+<!--## 3- Le transport et la Sécurité
+### 3-2 La sécurité-->
+## 4- La sécurité du réseau
+### 4-2 La procédure d'alerte:
+![Diagramme de séquence : procédure en cas d'alerte suite](image Gimp/sec2.png)
+
+<!--## 3- Le transport et la Sécurité
+### 3-2 La sécurité-->
+## 4- La sécurité du réseau
+### 4-1 La procédure d'alerte:
 ![Diagramme de séquence : procédure renforcéé](image Gimp/Ds_PR.jpg)
 
-## 4- La relation avec le Client
-### 4-1 Les rélves de données de consommations
-diagramme gazpar
+## 5- Collecte de données de consommation
+### 5-1 Le système alors utilisé
+Présentation du vieux système de comptage:
+- nécessite une intervention de relevé tous les six mois
+- basé sur un système mécanique simple
+![compteur mécanique](image Gimp/compteur.png)
 
+## 5- Collecte de données de consommation
+### 5-2 Le compteur communicant Gazpar
+-2009: lancement du projet
+-une solution simple, robuste et sécurisée:
+![chaîne communicante](../Diagramme/chainemodule.png)
 
-## 5- le diagramme de classe
-![diagramme de classe suite](image Gimp/classe1.png)
+## 5- Collecte de données de consommation
+### 5-2 Le système d'information associé
+![système d'information](../Diagramme/sigazpar.png)
 
-## 5- le diagramme de classe
-![diagramme de classe suite](image Gimp/classe2.png)
+## 5- Collecte de données de consommation
+![système d'information](../Diagramme/gazpar.jpg)
+
+## 5- Collecte de données de consommation
+diagramme2 sur Gapzar
 
 ## 6- Conclusion
-- Difficulté d'obtenir des informations auprès des agents de Grdf qu'on a rencontré.
-- Difficulté de modéliser un système qui ne se répresente pas avec l'outis UML.
+![diagramme de classe suite](image Gimp/classe1.png)
 
-#    Merci Pour votre attention
+## 6- Conclusion
+![diagramme de classe suite](image Gimp/classe2.png)
+
+
+# Merci Pour votre attention

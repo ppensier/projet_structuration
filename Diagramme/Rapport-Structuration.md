@@ -1,18 +1,3 @@
-#Plan
-
-# Introduction
-# I) Présentation de GrDF
-## 	1) Utilisation du réseau
-## 	2) Transport du gaz
-# II) Relation avec le client
-## 	1) Raccordement du client
-## 	2) Interruption
-# III) Transmission des données et sécurité
-## 1) Gazpar, le compteur communiquant
-## 2) Sécurité du réseau
-# IV) Synthèse
-
-
 # Intruduction
 
 Le présent rapport présente la structuration et la modélisation d'un système de distribution de gaz du point de vue de GrDF. L'UML (Unified Modeling Language) sera le principal outil utilisé.
@@ -25,7 +10,7 @@ Plusieurs points du système de distribution de gaz seront abordés :
 
 * Enfin, le système de comptage avec notamment le nouveau système de compteur communiquant Gazpar.
 
-# I) Présentation de GrDF
+# Présentation de GrDF
 
 GrDF est une entreprise de distribution de gaz. Sa mission est d'acheminer le gaz afin que des personnes ou des entreprises puissent s'en servir comme énergie. Pour autant, GrDF ne doit pas être confondu avec un fournisseur de gaz qui est un entreprise qui vend le gaz à des clients. Il y a ainsi entre GrDF et les fournisseurs la même relation qu'il y avait entre la SNCF et RFF :
 
@@ -77,7 +62,7 @@ Parmi l'appareillage du réseau on a :
 
 La séquence de distribution du gaz sera présentée plus tard dans le rapport et reprendra la carte précédente.
 
-## 1) Utilisation du réseau
+## Utilisation du réseau
 
 Le réseau, en plus des fournisseurs et de GrDF possèdent plusieurs acteurs. Le diagramme suivant présente les différentes utilisations possibles du réseau.
 
@@ -88,9 +73,9 @@ Les principales utilisations du réseau sont présentées à l'aide des fiches s
 ### Titre : Interrompre la fourniture.
 *Résumé* : Ce cas d'utilisation, permet à GrDF de couper le gaz pour les clients qui n'ont pas payé leurs consommations suite à la demande de leurs fournisseurs.
 
-*Acteurs* : GrDF, fournisseur et client.
- 
-*Description des scénario* :
+*Acteurs* : 
+
+GrDF, fournisseur et client.
 
 *Préconditions* :
 
@@ -135,44 +120,6 @@ Les principales utilisations du réseau sont présentées à l'aide des fiches s
 17. si le client est absent, l'opérateur ferme le robinet du compteur.
 
 18. GrDF facture le déplacement au fournisseur.
-
-
-###Titre : Transporter le Gaz.
-*Résumé* : Ce cas d'utilisation à GrDF de distribuer le gaz aux clients.
-
-*Acteur* : GrDF.
-
-*Description des scénario* :
-
-*Préconditions* :
-
-1. il y a du  gaz dans le réseau.
-
-2. il y a des clients.
-
-*scénario nominal* :
-
-1. le gaz est dans le réseau.
-
-2.si le gaz est liquide, il est gazéifié.
-
-3. le gaz est comprimé
-
-4. le mercaptan est injecté dans le gaz pour lui donner une odeur à la frontière.
-
-5.le gaz est de nouveau comprimer afin  qu'il puisse avancer dans les canalisations.
-
-6. soit il est détendu en  MPC.
-
-7. soit il est détendu en  MPB.
-
-8.s'il a été détendu en MPC, il est de nouveau détendu en MPB.
-
-9. soit il est détendu pour alimenter un poster client (souvent industriel ou commercial).
-
-10.soit il est détendu afin d'alimenter un consommateur classique.
-
-11.soit il est détendu en basse pression pour alimenter un client classique (réseau en fonte ductile, remplacement à venir).
 
 ### Titre : Assurer la sécurité.
 *Résumé* : 
@@ -233,17 +180,55 @@ GrDF.
 
 Nous venons donc de décrire l'utilisation que nos acteurs, dans le champ que l'on a délimité font du réseau de distribution.  Sans pour autant décrire chaque détails, nous allons expliquer comment le gaz est acheminé depuis l'endroit où il se situe naturellement jusqu'au consommateur.
 
-## 2) Transport du gaz
+## Transport du gaz
 
 Le gaz distribué par GrDF est un gaz dit naturel : il provient des réserves souterraines ou sous-marines. Ces réserves de gaz sont le résultat de la décomposition d'êtres vivants au cours du temps. Cette décomposition passe par un phase de méthanisation. C'est à ce moment que le gaz naturel se forme, sa composition chimique est CH4 (méthane). Le gaz naturel est à opposer à ce que l'on appelait auparavant le gaz de ville qui était produit par extraction du méthane contenu dans le charbon. Cette activité est maintenant terminée. 
 
-****à faire****
+###Titre : Transporter le Gaz.
+
+****mettre le diag***
+
+*Résumé* : Ce cas d'utilisation à GrDF de distribuer le gaz aux clients.
+
+*Acteur* : GrDF.
+
+*Description des scénario* :
+
+*Préconditions* :
+
+1. il y a du  gaz dans le réseau.
+
+2. il y a des clients.
+
+*scénario nominal* :
+
+1. le gaz est dans le réseau.
+
+2.si le gaz est liquide, il est gazéifié.
+
+3. le gaz est comprimé
+
+4. le mercaptan est injecté dans le gaz pour lui donner une odeur à la frontière.
+
+5.le gaz est de nouveau comprimer afin  qu'il puisse avancer dans les canalisations.
+
+6. soit il est détendu en  MPC.
+
+7. soit il est détendu en  MPB.
+
+8.s'il a été détendu en MPC, il est de nouveau détendu en MPB.
+
+9. soit il est détendu pour alimenter un poster client (souvent industriel ou commercial).
+
+10.soit il est détendu afin d'alimenter un consommateur classique.
+
+11.soit il est détendu en basse pression pour alimenter un client classique (réseau en fonte ductile, remplacement à venir).
 
 Suite au transport du gaz depuis les carrière naturel vient donc le consommateur, auquel GrDF ne facture rien directement mais avec qui il a tout de même certains liens.
 
-# II) Relation avec le client
+# Relation avec le client
 
-## 1) Raccordement de nouveaux clients
+## Raccordement de nouveaux clients
 
 Une des fonctionnalités du système de distribution de gaz est de pouvoir ajouter de nouveaux clients et donc de nouveaux bâtiments au réseau de gaz. Il faut pour cela réaliser éventuellement une extension de réseaux puis un branchement, qui correspond à la liaison entre les canalisations du réseau de gaz et le coffret individuel du particulier :
 
@@ -261,7 +246,7 @@ Les travaux de raccordement nécessitent l’accord préalable des autorités ad
 
 La procédure de branchement est la suivante :
 
-###Scénario du branchement
+### Scénario du branchement
 
 *Cas d’utilisation* : 
 
@@ -325,13 +310,13 @@ A2 : la maison est située à plus de 35 mètres du réseau de gaz.
 
 Le client peut désormais utiliser le gaz naturel, tant qu’il paye ses factures.
 
-![alt text](séquenceraccordement.jpg)
+![alt text](sequenceraccordement.jpg)
 
 Comme les travaux de raccordement s’arrêtent au niveau du coffret de comptage du particulier, un installateur viendra par la suite sur place pour relier la maison et mettre en place les équipements intérieurs (pose de la canalisation reliant le coffret de comptage à la maison, mise en route des appareils de chauffage…). 
 
 Bien sûr GrDF intervient pour relier le consommateur au réseau, mais GrDF intervient aussi pour couper l'accès du client au gaz.
 
-## 2) Interruption
+## Interruption
 
 ![alt text](DS-interruptionFournitureGaz.jpg)
 
@@ -356,9 +341,9 @@ Dans le cas d'une demande d'interruption optionnelle, soit le client est présen
 
 En cas d'absence du client, son robinet est fermé par l'opérateur. Suite à cela, GrDF facture à l'intervention au fournisseur.
 
-# III) Transmission des données et sécurité
+# Transmission des données et sécurité
 
-## 1) Gazpar, le compteur communiquant
+## Gazpar, le compteur communiquant
 
 ### L’état actuel du système de comptage
 
@@ -367,7 +352,7 @@ Actuellement, l’écrasante majorité des compteurs de gaz ne sont pas « intel
 l’intervention d’un opérateur tous les 6 mois pour relever la consommation effective.  
 Depuis 50 ans, le système de comptage n’a donc pas tellement évolué. Il est en effet basé sur un dispositif à membranes : la membrane, mobile et étanche au gaz, de chaque compartiment est mise en mouvement par la différence de pression entre l’amont et l’aval du compteur. Les tiroirs de distribution admettent le gaz alternativement d’un côté de la membrane, puis de l’autre et d’un compartiment à l’autre. Les deux membranes sont reliées chacune à un embiellage qui transforme le mouvement alternatif des soufflets en un mouvement de rotation continu entraînant le totaliseur mécanique, selon la figure suivante :
 
-****figure à définir****
+***figure à définir***
 
 Image dispositif de comptage.
 
@@ -401,7 +386,7 @@ Image module de transmission radio à brancher
 
 Comme illustré sur la figure précédente, les compteurs les plus récents seront simplement équipés de module de transmission radio, qui sera composé principalement d’un quartz et d’une antenne et d’une pile, sensée durer 20 ans : 
 
-![alt text](détailmodule.png)
+![alt text](detailmodule.png)
 
 (Image de détail du module électronique à brancher)
 
@@ -478,7 +463,7 @@ on se situe à l’heure de relève automatique quotidienne de la consommation d
 
 11. Mise à disposition des données de consommation au fournisseur.
 
-****Diagramme gazpar***
+***Diagramme gazpar***
 
 Comme les travaux de raccordement s’arrêtent au niveau du coffret de comptage du particulier, un installateur viendra par la suite sur place pour relier la maison et mettre en place les équipements intérieurs (pose de la canalisation reliant le coffret de comptage à la maison, mise en route des appareils de chauffage…).
 
@@ -486,14 +471,14 @@ Comme illustré sur le diagramme de séquence représentant la collecte des donn
 
 Cette chaîne d'événements ne pourraient avoir lieux sans un réseau sûr, c'est pourquoi nous allons préciser comment le réseau est mis en sécurité. 
 
-## 2) Sécurité du réseau
+## Sécurité du réseau
 
 Sur le réseau de GrDF, il y a certaines pièces mécaniques (robinet de gaz, pièce contenu dans les postes de détente...). Du fait de leur fonctionnement mécanique, ces pièce sont plus soumises à l'usure que les autres, cela implique une maintenance et une vigilance plus grande sur celles-ci. 
 En plus des pièces soumises à un usure mécanique naturelle, il est possible qu'il y ait des fuite ailleurs sur le réseau. Afin de détecter des éventuelles fuites sur le réseau, GrDF à mis en place des véhicules munis de capteurs permettant de connaître la composition de l'air et notamment la teneur en méthane, possible indicateur de fuite de gaz. Les données récoltées par ces véhicules, croisées avec l'incidentologie et le données contenues dans le SIG de GrDF permettent de mettre en évidence les zones à moderniser sur le réseau.
 
 Enfin, il est aussi possible que ce soit une tierce personne qui découvre une fuite. Dans ce dernier cas un standard est ouvert à GrDF afin de signaler l'incident. Le diagramme suivant décrit la séquence d'action lors d'un appel.
 
-![alt text](DS-Securité.jpg)
+![alt text](DS-Securite.jpg)
 
 Il est possible pour un appelant d'appeler le standard de GrDF ou le centre de traitement des alertes des pompiers. Si c'est le standard de GrDF qui est appelé, celui-ci relaie systématiquement l'appel aux pompiers et la situation est évaluée par téléphone.
 
@@ -501,7 +486,7 @@ Dans le cas où ce sont les pompiers qui sont appelés, l'appel est relayé à G
 
 Si la situation est jugée comme étant grave, il y a lancement de la procédure renforcée. Cette dernière est décrite dans le diagramme suivant.
 
-![alt text](Ds_ProcédureRenforcée.jpg)
+![alt text](Ds_ProcedureRenforcee.jpg)
 
 Lorsque la procédure renforcée est lancée, les pompiers prépare le plan d'intervention puis demande l'intervention d'autres services (smur, police...). Ils demandent ensuite l'identification de la canalisation par un opérateur GrDF.  Cet opérateur interroge ensuite l'outil Carpathe afin d'identifier la canalisation puis donne la réponse aux pompiers.
 
@@ -510,7 +495,7 @@ Si elle est en moyenne pression, l'opérateur ferme les robinets de gaz alimenta
 
 Dans le cas où l'évaluation est normale, la situation est de nouveau évaluée sur le terrain par l'opérateur GrDF. Si la situation est jugée grave, la procédure renforcée est lancée, dans le cas contraire la canalisation est réparée. De même les pompiers sont envoyés sur le terrain, et procèdent à une évaluation. Une nouvelle fois, si la situation est grave, la procédure renforcée est lancée, sinon la canalisation est réparée.
 
-# IV) Synthèse
+# Synthèse
 
 ![alt text](D-Classe.jpg)
 
@@ -528,7 +513,7 @@ Une aggrégation de groupes de canalisations forment un secteur d'exploitation.
 
 Enfin, plusieurs secteurs d'exploitation se trouvant sur une même zone géographique forment une exploitation.
 
-#Bibliographie et sitographie
+# Bibliographie et sitographie
 
 * Note d'information opérationnelle, Intervention pour fuite sur unréseau de gaz naturel, Ministère de l'Intérieur
  Procédure pour déplacement impayé, GrDF
