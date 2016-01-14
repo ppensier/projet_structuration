@@ -3,18 +3,12 @@
 % Amiri Mohammed, Milville Romain et Pensier Philémon 
 
 ## Plan
-<!--1- Introduction
-2- Présentation
-3- Intéraction avec le client
-4- l'aspect securité
-5- Conclusion -->
-
-1- Introduction du sujet
-2- Structure du réseau de distribution
-3- Le transport du gaz
-4- La sécurité du réseau
-5- Collecte des données de consommation
-6- Conclusion
+- 1- Introduction du sujet
+- 2- Structure du réseau de distribution
+- 3- Le transport du gaz
+- 4- La sécurité du réseau
+- 5- Collecte des données de consommation
+- 6- Conclusion
 
 <!-- ## 1- Introduction
 Ce projet . -->
@@ -27,18 +21,21 @@ Ce projet . -->
 <!-- présenter Grdf en citant ses principales missions 
 <!-- Ajouter le use case à cet endroit: qu'est ce que l'on veut modéliser?-->
 
-## 2- Présentation du réseau de distribution de Grdf(ajouter une légende)
-![exemple d'une carte de réseau de gaz](image Gimp/carte gaz.jpg)
+## 2- Présentation du réseau de distribution de Grdf
+![exemple d'une carte de réseau de gaz](image Gimp/cartegaz.png =100x20)
+
+## 2- Présentation du réseau de distribution de Grdf
+![exemple d'une carte de réseau de gaz](image Gimp/cartegaz.png)
 
 <!--## 3- Le transport et la Sécurité
 ### 3-1 Le transport-->
 ## 3- Le transport du gaz
 La partie transport
-![exemple d'une carte de réseau de gaz](image Gimp/activite1.png)
+![exemple d'une carte de réseau de gaz](image Gimp/activitep1.png)
 
 ## 3- Le transport du gaz
 La partie distribution
-![exemple d'une carte de réseau de gaz](image Gimp/activite2.png)
+![exemple d'une carte de réseau de gaz](image Gimp/activitep2.png)
 
 ## 4- La sécurité du réseau
 ### 4-1 Un enjeux essentiel pour Grdf:
@@ -48,13 +45,13 @@ La partie distribution
 ### 3-2 La sécurité-->
 ## 4- La sécurité du réseau
 ### 4-1 La procédure d'alerte
-![Diagramme de séquence : procédure en cas d'alerte](image Gimp/sequence suite.png)
+![Diagramme de séquence : procédure en cas d'alerte](image Gimp/sec1.png)
 
 <!--## 3- Le transport et la Sécurité
 ### 3-2 La sécurité-->
 ## 4- La sécurité du réseau
 ### 4-1 La procédure d'alerte:
-![Diagramme de séquence : procédure en cas d'alerte suite](image Gimp/sequence suite1.png)
+![Diagramme de séquence : procédure en cas d'alerte suite](image Gimp/sec2.png)
 
 <!--## 3- Le transport et la Sécurité
 ### 3-2 La sécurité-->
@@ -77,16 +74,16 @@ diagramme1 sur Gapzar
 ## 5- Collecte de données de consommation
 diagramme2 sur Gapzar
 
-## 6- conclusion
+## 6- Diagramme de classe
 ![diagramme de classe suite](image Gimp/classe1.png)
 
-## 6- conclusion
+## 6- Diagramme de classe
 ![diagramme de classe suite](image Gimp/classe2.png)
 
-<!--
+
 ## 6- Conclusion
 - Difficulté d'obtenir des informations auprès des agents de Grdf qu'on a rencontré.
 - Difficulté de modéliser un système qui ne se répresente pas avec l'outis UML.
--->
 
-#    Merci Pour votre attention
+
+# Merci Pour votre attention
