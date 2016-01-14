@@ -327,8 +327,6 @@ Comme illustré sur la figure précédente, les compteurs les plus récents sero
 
 ![Détails sur le module de transmission](../Diagramme/detailmodule.png)
 
-(Image de détail du module électronique à brancher)
-
 Le fonctionnement de la chaîne communicante est décrit sur le schéma suivant :
 
 ![Chaîne de transmission de données](../Diagramme/chainemodule.png)
