@@ -1,5 +1,5 @@
 % Projet de Structuration
-% Modélisation du réseau de Distrubition de gaz de Grdf
+% Modélisation du réseau de Distribution de gaz de Grdf
 % Amiri Mohammed, Milville Romain et Pensier Philémon 
 
 ## Plan
@@ -25,12 +25,14 @@ Ce projet . -->
 <!-- Ajouter le use case à cet endroit: qu'est ce que l'on veut modéliser?-->
 
 ## 2- Présentation du réseau de distribution de Grdf
+
 ![exemple d'une carte de réseau de gaz](image Gimp/cartegaz.png =100x20)
 
 <!--## 3- Le transport et la Sécurité
 ### 3-1 Le transport-->
 ## 3- Le transport du gaz
 La partie transport:
+
 ![exemple d'une carte de réseau de gaz](image Gimp/activitep1.png)
 
 ## 3- Le transport du gaz
@@ -61,16 +63,22 @@ La partie distribution:
 ![Diagramme de séquence : procédure renforcéé](image Gimp/Ds_PR.jpg)
 
 ## 5- Collecte de données de consommation
-### 5-1 Le système utilisé jusqu'ici
+### 5-1 Le système jusqu'ici
 <!--Présentation du vieux système de comptage:-->
 - nécessite une intervention de relevé tous les six mois
-- basé sur un système mécanique simple
+- est basé sur un système mécanique simple.
+
+
+
 ![compteur mécanique](image Gimp/compteur.png)
 
 ## 5- Collecte de données de consommation
 ### 5-2 Le compteur communicant Gazpar
 - 2009\: lancement du projet
-- une solution simple, robuste et sécurisée
+- une solution simple, robuste et sécurisée.
+ 
+
+
 ![chaîne communicante](../Diagramme/chainemodule.png)
 
 ## 5- Collecte de données de consommation
@@ -78,10 +86,10 @@ La partie distribution:
 ![système d'information](../Diagramme/sigazpar.png)
 
 ## 5- Collecte de données de consommation
-![système d'information](../Diagramme/gazpar.jpg)
+![système d'information](../Diagramme/gazpar_zoom.jpg)
 
 ## 5- Collecte de données de consommation
-diagramme2 sur Gapzar
+![système d'information](../image Gimp/traitement.png)
 
 ## 6- Conclusion
 ![diagramme de classe suite](image Gimp/classe1.png)
