@@ -89,7 +89,7 @@ La partie distribution:
 ![système d'information](../Diagramme/gazpar_zoom.jpg)
 
 ## 5- Collecte de données de consommation
-![système d'information](../image Gimp/traitement.png)
+![système d'information](image Gimp/traitement.png)
 
 ## 6- Conclusion
 ![diagramme de classe suite](image Gimp/classe1.png)
