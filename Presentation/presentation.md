@@ -18,14 +18,14 @@ Ce projet . -->
 - une société qui gere plus de 200 000 km de canalisation sur tous le teritoire français.
 - environ 11000 employés.
 
+## 2- Présentation du projet
+![Diagramme de cas d'utilisation](image Gimp/useCase.png)
+
 <!-- présenter Grdf en citant ses principales missions 
 <!-- Ajouter le use case à cet endroit: qu'est ce que l'on veut modéliser?-->
 
 ## 2- Présentation du réseau de distribution de Grdf
 ![exemple d'une carte de réseau de gaz](image Gimp/cartegaz.png =100x20)
-
-## 2- Présentation du réseau de distribution de Grdf
-![exemple d'une carte de réseau de gaz](image Gimp/cartegaz.png)
 
 <!--## 3- Le transport et la Sécurité
 ### 3-1 Le transport-->
@@ -39,18 +39,19 @@ La partie distribution
 
 ## 4- La sécurité du réseau
 ### 4-1 Un enjeux essentiel pour Grdf:
-<!--donner des chiffres pour faire comprendre que la sécurité est un enjeu essentiel pour Grdf-->
+- 5000 accrochages/an
+- risques de fuites et d'explosion
 
 <!--## 3- Le transport et la Sécurité
 ### 3-2 La sécurité-->
 ## 4- La sécurité du réseau
-### 4-1 La procédure d'alerte
+### 4-2 La procédure d'alerte
 ![Diagramme de séquence : procédure en cas d'alerte](image Gimp/sec1.png)
 
 <!--## 3- Le transport et la Sécurité
 ### 3-2 La sécurité-->
 ## 4- La sécurité du réseau
-### 4-1 La procédure d'alerte:
+### 4-2 La procédure d'alerte:
 ![Diagramme de séquence : procédure en cas d'alerte suite](image Gimp/sec2.png)
 
 <!--## 3- Le transport et la Sécurité
@@ -60,30 +61,33 @@ La partie distribution
 ![Diagramme de séquence : procédure renforcéé](image Gimp/Ds_PR.jpg)
 
 ## 5- Collecte de données de consommation
-Présentation du vieux système de comptage
+### 5-1 Le système alors utilisé
+Présentation du vieux système de comptage:
+- nécessite une intervention de relevé tous les six mois
+- basé sur un système mécanique simple
+![compteur mécanique](image Gimp/compteur.png)
 
 ## 5- Collecte de données de consommation
-Présentation de Gazpar
+### 5-2 Le compteur communicant Gazpar
+-2009: lancement du projet
+-une solution simple, robuste et sécurisée:
+![chaîne communicante](../Diagramme/chainemodule.png)
 
 ## 5- Collecte de données de consommation
-Présentation de Gazpar (S.I)
+### 5-2 Le système d'information associé
+![système d'information](../Diagramme/sigazpar.png)
 
 ## 5- Collecte de données de consommation
-diagramme1 sur Gapzar
+![système d'information](../Diagramme/gazpar.jpg)
 
 ## 5- Collecte de données de consommation
 diagramme2 sur Gapzar
 
-## 6- Diagramme de classe
+## 6- Conclusion
 ![diagramme de classe suite](image Gimp/classe1.png)
 
-## 6- Diagramme de classe
-![diagramme de classe suite](image Gimp/classe2.png)
-
-
 ## 6- Conclusion
-- Difficulté d'obtenir des informations auprès des agents de Grdf qu'on a rencontré.
-- Difficulté de modéliser un système qui ne se répresente pas avec l'outis UML.
+![diagramme de classe suite](image Gimp/classe2.png)
 
 
 # Merci Pour votre attention
