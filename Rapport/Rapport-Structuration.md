@@ -66,60 +66,10 @@ La séquence de distribution du gaz sera présentée plus tard dans le rapport e
 
 Le réseau, en plus des fournisseurs et de GrDF possèdent plusieurs acteurs. Le diagramme suivant présente les différentes utilisations possibles du réseau.
 
+Les principaux cas d'utilisation du réseau etl es acteurs du projet sont présentées ci-dessous:
+
 ![Diagramme de cas d'utilisation](../Diagramme/Diagrammedecasdutilisation.png)
 
-Les principales utilisations du réseau sont présentées à l'aide des fiches suivantes :
-
-### Titre : Interrompre la fourniture.
-*Résumé* : Ce cas d'utilisation, permet à GrDF de couper le gaz pour les clients qui n'ont pas payés leurs consommations suite à la demande de leurs fournisseurs.
-
-*Acteurs* : 
-
-GrDF, fournisseur et client.
-
-*Préconditions* :
-
-1. Client n'a payé sa facture.
-2. le fournisseur demande à GrDF de couper le gaz pour le client
-3. Un agent est disponible pour se déplaçer.
-
-*Scénario nominal* :
-
-1. si le contrat du client n'est pas soumis à une obligation de maintient de fourniture, le fournisseur demande un déplacement pour couper le gaz à GrDF.
-
-2. GrDF renvoie les informations pour la mission d'interruption.
-
-3. Si client paye sa facture entre temps , le fournisseur demande d'annuler la mission d'interruption à GrDF.
-
-4. Si la demande  ne dépasse pas le délai, GrDF annule la mission.
-
-5. Le fournisseur informe le client pour qu'il ait la possibilité sa facture à l'opérateur GrDF.
-
-6. GrDF envoie l'opérateur.
-
-7. Si le fournisseur choisit l'option d'interruption ferme.
-
-8. Si le client prouve le paiement de sa facture, l'opérateur GrDF informe le fournisseur.
-
-9. Si le client ne prouve pas le paiement.
-
-10. Si l'opérateur est confronté à un cas de force majeur, il informe le fournisseur.
-
-11. sinon, l'opérateur ferme le robinet du compteur.
-
-12. si le fournisseur choisit l'option d'interruption optionelle.
-
-13. si le client est présent.
-
-14. Si le client accepte de payer sa facture, l'opérateur informe le fournisseur.
-
-15. sinon l'opérateur ferme le robinet de compteur.  
-
-16. si le client refuse de payer sa facuture, l'opérateur ferme le robinet du compteur.
-
-17. si le client est absent, l'opérateur ferme le robinet du compteur.
-
-18. GrDF facture le déplacement au fournisseur.
 
 ### Titre : Assurer la sécurité.
 *Résumé* : 
@@ -318,6 +268,57 @@ Comme les travaux de raccordement s’arrêtent au niveau du coffret de comptage
 Bien sûr GrDF intervient pour relier le consommateur au réseau, mais GrDF intervient aussi pour couper l'accès du client au gaz.
 
 ## Interruption
+### Titre : Interrompre la fourniture.
+*Résumé* : Ce cas d'utilisation, permet à GrDF de couper le gaz pour les clients qui n'ont pas payés leurs consommations suite à la demande de leurs fournisseurs.
+
+*Acteurs* : 
+
+GrDF, fournisseur et client.
+
+*Préconditions* :
+
+1. Client n'a payé sa facture.
+2. le fournisseur demande à GrDF de couper le gaz pour le client
+3. Un agent est disponible pour se déplaçer.
+
+*Scénario nominal* :
+
+1. si le contrat du client n'est pas soumis à une obligation de maintient de fourniture, le fournisseur demande un déplacement pour couper le gaz à GrDF.
+
+2. GrDF renvoie les informations pour la mission d'interruption.
+
+3. Si client paye sa facture entre temps , le fournisseur demande d'annuler la mission d'interruption à GrDF.
+
+4. Si la demande  ne dépasse pas le délai, GrDF annule la mission.
+
+5. Le fournisseur informe le client pour qu'il ait la possibilité sa facture à l'opérateur GrDF.
+
+6. GrDF envoie l'opérateur.
+
+7. Si le fournisseur choisit l'option d'interruption ferme.
+
+8. Si le client prouve le paiement de sa facture, l'opérateur GrDF informe le fournisseur.
+
+9. Si le client ne prouve pas le paiement.
+
+10. Si l'opérateur est confronté à un cas de force majeur, il informe le fournisseur.
+
+11. sinon, l'opérateur ferme le robinet du compteur.
+
+12. si le fournisseur choisit l'option d'interruption optionelle.
+
+13. si le client est présent.
+
+14. Si le client accepte de payer sa facture, l'opérateur informe le fournisseur.
+
+15. sinon l'opérateur ferme le robinet de compteur.  
+
+16. si le client refuse de payer sa facuture, l'opérateur ferme le robinet du compteur.
+
+17. si le client est absent, l'opérateur ferme le robinet du compteur.
+
+18. GrDF facture le déplacement au fournisseur.
+
 
 ![Diagramme de séquence d'interruption de fourniture](../Diagramme/DS-interruptionFournitureGaz.jpg)
 
