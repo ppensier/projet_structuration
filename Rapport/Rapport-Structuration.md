@@ -400,6 +400,8 @@ Comme les travaux de raccordement s’arrêtent au niveau du coffret de comptage
 
 ![Diagramme de séquence de la collecte des données](../Diagramme/Sequence_test.jpg)
 
+Référence traitement des informations.
+
 ![Diagramme de séquence de la collecte des données](../Diagramme/sequence_gazpar.jpg)
 
 Comme illustré sur le diagramme de séquence représentant la collecte des données de consommation, ces informations doivent être mises à disposition du client quotidiennement et doivent également être mise à disposition du fournisseur.
@@ -408,13 +410,14 @@ Cette chaîne d'événements ne pourraient avoir lieux sans un réseau sûr, c'e
 
 ## Sécurité du réseau
 
-Sur le réseau de GrDF, il y a certaines pièces mécaniques (robinet de gaz, pièce contenu dans les postes de détente...). Du fait de leur fonctionnement mécanique, ces pièce sont plus soumises à l'usure que les autres, cela implique une maintenance et une vigilance plus grande sur celles-ci. 
-En plus des pièces soumises à un usure mécanique naturelle, il est possible qu'il y ait des fuite ailleurs sur le réseau. Afin de détecter des éventuelles fuites sur le réseau, GrDF à mis en place des véhicules munis de capteurs permettant de connaître la composition de l'air et notamment la teneur en méthane, possible indicateur de fuite de gaz. Les données récoltées par ces véhicules, croisées avec l'incidentologie et le données contenues dans le SIG de GrDF permettent de mettre en évidence les zones à moderniser sur le réseau.
+Sur le réseau de GrDF, il y a certaines pièces mécaniques (robinet de gaz, pièces contenues dans les postes de détente...). Du fait de leur fonctionnement mécanique, ces pièces sont plus soumises à l'usure que les autres, cela implique une maintenance et une vigilance plus grande sur celles-ci. 
+En plus des pièces soumises à un usure mécanique naturelle, il est possible qu'il y ait des fuites ailleurs sur le réseau. Afin de détecter des éventuelles fuites sur le réseau, GrDF à mis en place des véhicules munis de capteurs permettant de connaître la composition de l'air et notamment la teneur en méthane, possible indicateur de fuite de gaz. Les données récoltées par ces véhicules, croisées avec l'incidentologie et le données contenues dans le SIG de GrDF permettent de mettre en évidence les zones à moderniser sur le réseau.
 
 Enfin, il est aussi possible que ce soit une tierce personne qui découvre une fuite. Dans ce dernier cas un standard est ouvert à GrDF afin de signaler l'incident. Le diagramme suivant décrit la séquence d'action lors d'un appel.
 
 
 ### Titre : Assurer la sécurité.
+
 *Résumé* : 
 
 Ce cas d'utilisation, permet à GrDF d'assuer la sécurité du réseau.
@@ -440,16 +443,27 @@ GrDF.
 2. Si il appelle le Standard de GrDF, il y a un appel systématique au CTA-CDIS .
 
 3. L'opérateur qui a répondu à l' appel fait évaluer la situation selon la grille PGR.
+
 4. Sinon il appelle le standard CTA-CODIS, il y a aussi un appel systématique au standard de GrDF.
+
 5. L'opérateur du standard du CTA-CODIS évalue la situation selon la grille PGR.
+
 6. La situation est grave,  déclenchement de la procédure renforcée( voir scénario procédure renforcée).
+
 7. Si la situation est normale, GrDF envoie l'opérateur.
+
 8. L'opérateur fait l'évaluation sur terrain.
+
 9. Si l'évaluation est grave, déclenchement de la procédure renforcée.
+
 10. Si la situation est normale, il fait les réparations.
-11. CTA-CODIS envoie le COS .
+
+11. CTA-CODIS envoie le COS.
+
 12. Le COS évalue la situation sur le terrrain.
+
 13. Si l'évaluation est grave,  déclenchement de la procédure renforcée.
+
 14. Sinon l'opérateur GrDF fait la réparation.
 
 *Scénario nominal* (Procédure Renforcée).
@@ -493,11 +507,11 @@ Dans le cas où l'évaluation est normale, la situation est de nouveau évaluée
 
 ![Diagramme de classe](../Diagramme/D-Classe.jpg)
 
-Le diagramme du classe ci-dessus met en lien les différentes partie du rapport précédemment présentées. Y figure les principaux attributs de chaque classe.
+Le diagramme du classe ci-dessus met en lien les différentes parties du rapport précédemment présentées. Y figurent les principaux attributs de chaque classe.
 
 Dans cette dernière partie on se focalisera sur la partie SIG de GrDF, le reste ayant été traité précédemment dans le rapport.
 
-Du point de vue du SIG de GrDF, la classe la plus utilisée est le tronçon de canalisation. Celui-ci possède des attributs qui permette de le définir : sa matière, son année de pose... Ces Tronçons de canalisation peuvent être reliés à des postes. Ces postes peuvent être des postes clients (grand consommateur de gaz) ou des postes de détente. Si on a un client classque et pas un postre client, le tronçon de canalisation est en lien avec un branchement qui relie le tronçon au compteur. Le compteur est ensuite relié au système d'envoie de données comme présenté dans les parties précédentes. Ces Tronçons de canalisation sont aussi à relier à l'appareillage, en effet, c'est bien sur ces tronçons que seront reliés les différents manchons, robinets, etc...
+Du point de vue du SIG de GrDF, la classe la plus utilisée est le tronçon de canalisation. Celui-ci possède des attributs qui permettent de le définir : sa matière, son année de pose... Ces tronçons de canalisation peuvent être reliés à des postes. Ces postes peuvent être des postes clients (grand consommateur de gaz) ou des postes de détente. Si on a un client classique et pas un poste client (consommateur industriel), le tronçon de canalisation est en lien avec un branchement qui relie le tronçon au compteur. Le compteur est ensuite relié au système d'envoie de données comme présenté dans les parties précédentes. Ces tronçons de canalisation sont aussi à relier à l'appareillage. En effet, c'est bien sur ces tronçons que seront reliés les différents manchons, robinets, etc...
 
 Au dessus des tronçons de canalisation, on trouve la canalisation qui est une composition de tronçons.
 
