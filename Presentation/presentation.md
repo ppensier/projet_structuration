@@ -69,8 +69,8 @@ La partie distribution:
 
 ## 5- Collecte de données de consommation
 ### 5-2 Le compteur communicant Gazpar
--2009\: lancement du projet
--une solution simple, robuste et sécurisée
+- 2009\: lancement du projet
+- une solution simple, robuste et sécurisée
 ![chaîne communicante](../Diagramme/chainemodule.png)
 
 ## 5- Collecte de données de consommation
